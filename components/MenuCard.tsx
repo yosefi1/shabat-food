@@ -22,7 +22,7 @@ interface Props {
 }
 
 export default function MenuCard({ item, index }: Props) {
-  const { addItem, openCart } = useCart();
+  const { addItem } = useCart();
   const [imgLoaded, setImgLoaded] = useState(false);
   const [imgError, setImgError] = useState(false);
   const [added, setAdded] = useState(false);
@@ -105,13 +105,6 @@ export default function MenuCard({ item, index }: Props) {
         </div>
       </div>
 
-      {/* Quick-view cart link */}
-      <button
-        onClick={openCart}
-        className="absolute inset-0 opacity-0 focus-visible:opacity-100"
-        aria-label={`פתח עגלה לאחר הוספת ${item.name}`}
-        tabIndex={-1}
-      />
     </motion.article>
   );
 }
