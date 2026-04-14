@@ -1,12 +1,9 @@
 /**
- * middleware.ts
+ * proxy.ts  (previously middleware.ts — renamed for Next.js 16)
  *
  * Protects all /admin/** routes and /api/admin/** API routes.
  * Unauthenticated requests are redirected to /admin/login (pages)
  * or receive a 401 JSON response (API routes).
- *
- * The middleware runs on the Edge runtime and uses jose for JWT
- * verification (no Node.js crypto module needed).
  *
  * PUBLIC exceptions (no auth required):
  *   - /admin/login
@@ -17,7 +14,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { verifyAdminToken } from "@/lib/auth";
 
-export async function middleware(req: NextRequest) {
+export async function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
   /* ── Admin PAGE routes ─────────────────────────────────────────────────── */

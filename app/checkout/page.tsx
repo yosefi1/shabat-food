@@ -266,7 +266,7 @@ export default function CheckoutPage() {
                     <select
                       id="deliveryTime"
                       value={form.deliveryTime}
-                      onChange={(e) => setForm({ ...form, deliveryTime: e.target.value })}
+                      onChange={(e) => setForm({ ...form, deliveryTime: e.target.value as CustomerDetails["deliveryTime"] })}
                       required
                       aria-required="true"
                       className="w-full border border-brown-200 rounded-xl px-4 py-3 text-brown-900 bg-white focus:outline-none focus:ring-2 focus:ring-amber-400"

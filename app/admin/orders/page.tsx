@@ -5,7 +5,7 @@ import { Search, RefreshCw } from "lucide-react";
 import {
   OrderModal, SortTh,
   STATUS_LABEL, STATUS_STYLE,
-  type AdminOrder as Order, type SortDir,
+  type AdminOrder as Order, type SortDir, type OrderStatus,
 } from "@/components/admin/shared";
 
 type SortKey = "orderId"|"customer.name"|"createdAt"|"totalPrice"|"status";

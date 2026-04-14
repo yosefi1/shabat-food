@@ -73,7 +73,7 @@ export const customerSchema = z.object({
 
   /* FIX C2 — validate against allowed enum, not just non-empty string */
   deliveryTime: z.enum(DELIVERY_SLOTS, {
-    errorMap: () => ({ message: "נא לבחור מועד משלוח תקין" }),
+    message: "נא לבחור מועד משלוח תקין",
   }),
 
   notes: z

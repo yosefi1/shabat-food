@@ -91,9 +91,8 @@ export async function POST(req: NextRequest) {
   const parsed = orderSchema.safeParse(sanitized);
 
   if (!parsed.success) {
-    // Return the first error message (already in Hebrew from schema definitions)
-    const firstError = parsed.error.errors[0];
-    console.warn("[checkout] Validation failed:", parsed.error.errors);
+    const firstError = parsed.error.issues[0];
+    console.warn("[checkout] Validation failed:", parsed.error.issues);
     return fail(firstError?.message ?? "נתונים לא תקינים", 400);
   }
 
