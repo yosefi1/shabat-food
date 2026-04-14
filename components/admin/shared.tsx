@@ -88,6 +88,7 @@ export function OrderModal({
     return () => document.removeEventListener("keydown", onKey);
   }, [onClose]);
 
+  const [customerOpen, setCustomerOpen] = useState(false);
   const deliveryFee = order.totalPrice > 0 ? (order.totalPrice >= 200 ? 0 : 25) : 0;
   const grandTotal  = order.totalPrice + deliveryFee;
   const isBusy      = updating === order.orderId;
@@ -157,35 +158,7 @@ export function OrderModal({
             </button>
           </div>
 
-          {/* Customer */}
-          <div>
-            <h3 className="font-bold text-gray-900 text-sm mb-3">פרטי לקוח</h3>
-            <div className="grid sm:grid-cols-2 gap-2.5">
-              {[
-                { icon: FileText, v: order.customer.name,                                label: "שם"      },
-                { icon: Phone,    v: order.customer.phone,                               label: "טלפון"   },
-                { icon: Mail,     v: order.customer.email,                               label: "אימייל"  },
-                { icon: MapPin,   v: `${order.customer.address}, ${order.customer.city}`,label: "כתובת"   },
-                { icon: Clock,    v: order.customer.deliveryTime,                        label: "מועד"    },
-              ].map(({ icon: Icon, v, label }) => (
-                <div key={label} className="flex items-start gap-2.5 bg-gray-50 rounded-xl px-3 py-2.5">
-                  <Icon size={15} className="text-amber-500 mt-0.5 flex-shrink-0" />
-                  <div>
-                    <p className="text-[10px] text-gray-400 leading-none">{label}</p>
-                    <p className="text-sm font-semibold text-gray-900 mt-0.5">{v}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            {order.customer.notes && (
-              <div className="mt-2.5 bg-amber-50 border border-amber-200 rounded-xl p-3">
-                <p className="text-xs text-amber-600 font-semibold mb-0.5">הערות:</p>
-                <p className="text-sm text-amber-900">{order.customer.notes}</p>
-              </div>
-            )}
-          </div>
-
-          {/* Items */}
+          {/* Items — shown first */}
           <div>
             <h3 className="font-bold text-gray-900 text-sm mb-3">פריטי ההזמנה</h3>
             <table className="w-full text-sm">
@@ -222,6 +195,48 @@ export function OrderModal({
                 </tfoot>
               )}
             </table>
+          </div>
+
+          {/* Customer — collapsible */}
+          <div className="border border-gray-100 rounded-2xl overflow-hidden">
+            <button
+              onClick={() => setCustomerOpen((o) => !o)}
+              className="w-full flex items-center justify-between px-4 py-3 bg-gray-50 hover:bg-gray-100 transition-colors"
+            >
+              <span className="font-bold text-gray-900 text-sm">פרטי לקוח</span>
+              {customerOpen
+                ? <ChevronUp size={16} className="text-gray-400" />
+                : <ChevronDown size={16} className="text-gray-400" />
+              }
+            </button>
+
+            {customerOpen && (
+              <div className="px-4 py-4 space-y-2.5">
+                <div className="grid sm:grid-cols-2 gap-2.5">
+                  {[
+                    { icon: FileText, v: order.customer.name,                                 label: "שם"     },
+                    { icon: Phone,    v: order.customer.phone,                                label: "טלפון"  },
+                    { icon: Mail,     v: order.customer.email,                                label: "אימייל" },
+                    { icon: MapPin,   v: `${order.customer.address}, ${order.customer.city}`, label: "כתובת"  },
+                    { icon: Clock,    v: order.customer.deliveryTime,                         label: "מועד"   },
+                  ].map(({ icon: Icon, v, label }) => (
+                    <div key={label} className="flex items-start gap-2.5 bg-gray-50 rounded-xl px-3 py-2.5">
+                      <Icon size={15} className="text-amber-500 mt-0.5 flex-shrink-0" />
+                      <div>
+                        <p className="text-[10px] text-gray-400 leading-none">{label}</p>
+                        <p className="text-sm font-semibold text-gray-900 mt-0.5">{v}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                {order.customer.notes && (
+                  <div className="bg-amber-50 border border-amber-200 rounded-xl p-3">
+                    <p className="text-xs text-amber-600 font-semibold mb-0.5">הערות:</p>
+                    <p className="text-sm text-amber-900">{order.customer.notes}</p>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         </div>
       </div>
