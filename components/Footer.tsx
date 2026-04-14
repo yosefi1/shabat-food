@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Phone, Mail, MapPin } from "lucide-react";
 
@@ -16,12 +17,21 @@ export default function Footer() {
 
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <span className="text-2xl" aria-hidden="true">🕯️</span>
-              <span className="text-xl font-black">שבת פוד</span>
+            <div className="flex items-center gap-3 mb-4">
+              <Image
+                src="/logo.png"
+                alt="תורגיי"
+                width={52}
+                height={52}
+                className=""
+              />
+              <div>
+                <p className="text-xl font-black">תורגיי</p>
+                <p className="text-brown-400 text-xs">קייטרינג לשבת ואירועים</p>
+              </div>
             </div>
             <p className="text-brown-300 text-sm leading-relaxed max-w-xs">
-              בישול ביתי אמיתי לשולחן השבת שלכם. מוכן עם אהבה, מוגש עם חמימות — כל שישי.
+              קייטרינג מקצועי לשבתות ואירועים. בישול ביתי אמיתי עם מתכונים מסורתיים — מוכן עם אהבה לכל שולחן.
             </p>
           </div>
 
@@ -53,11 +63,11 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:hello@shabbatfood.co.il"
+                  href="mailto:hello@turgi.co.il"
                   className="flex items-center gap-2 text-brown-300 hover:text-white focus-visible:ring-2 focus-visible:ring-amber-400 rounded transition-colors"
                 >
                   <Mail size={15} className="text-amber-500" aria-hidden="true" />
-                  hello@shabbatfood.co.il
+                  hello@turgi.co.il
                 </a>
               </li>
               <li className="flex items-center gap-2 text-brown-300">
@@ -70,7 +80,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-brown-700 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-brown-500 text-sm">
-          <p>© {new Date().getFullYear()} שבת פוד. כל הזכויות שמורות.</p>
+          <p>© {new Date().getFullYear()} תורגיי. כל הזכויות שמורות.</p>
           <nav aria-label="קישורים משפטיים">
             <ul className="flex flex-wrap justify-center gap-x-5 gap-y-2">
               {legalLinks.map(({ href, label }) => (

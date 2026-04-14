@@ -18,6 +18,12 @@
   --color-cream-100: #F5EDD9;
   --color-cream-200: #EBD9B4;
 
+  /* Gold scale — matching the Turgi logo */
+  --color-gold-300: #E2C27A;
+  --color-gold-400: #C8A84B;
+  --color-gold-500: #B8942F;
+  --color-gold-600: #9A7B25;
+
   /* Typography */
   --font-sans: var(--font-heebo), system-ui, sans-serif;
 }
@@ -66,7 +72,7 @@ body {
  * WCAG 2.4.7 — Focus Visible (Level AA).
  */
 :focus-visible {
-  outline: 2px solid #F59E0B; /* amber-400 */
+  outline: 2px solid #C8A84B; /* gold-400 — matches Turgi logo */
   outline-offset: 2px;
 }
 

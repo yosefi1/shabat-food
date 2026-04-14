@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 
@@ -13,8 +14,9 @@ export default function LegalLayout({ children }: { children: React.ReactNode })
           >
             <ChevronRight size={22} aria-hidden="true" />
           </Link>
-          <Link href="/" className="font-black text-xl text-brown-900">
-            🕯️ שבת פוד
+          <Link href="/" className="flex items-center gap-2" aria-label="תורגיי — דף הבית">
+            <Image src="/logo.png" alt="תורגיי" width={36} height={36} className="" />
+            <span className="font-black text-xl text-brown-900">תורגיי</span>
           </Link>
         </div>
       </header>

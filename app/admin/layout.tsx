@@ -40,9 +40,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     <aside className="flex flex-col h-full bg-brown-900 text-white w-64 flex-shrink-0">
       {/* Logo */}
       <div className="px-5 py-6 border-b border-brown-700 flex items-center gap-3">
-        <span className="text-2xl">🕯️</span>
+        <img src="/logo.png" alt="תורגיי" className="w-9 h-9 flex-shrink-0" />
         <div>
-          <p className="font-black text-base">שבת פוד</p>
+          <p className="font-black text-base">תורגיי</p>
           <p className="text-brown-400 text-xs">ממשק ניהול</p>
         </div>
       </div>

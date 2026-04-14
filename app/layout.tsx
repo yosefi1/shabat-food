@@ -16,20 +16,20 @@ const heebo = Heebo({
  * ─────────────────────────────────────────────────────────────────────────── */
 export const metadata: Metadata = {
   title: {
-    default:  "שבת פוד | אוכל ביתי לשבת",
-    template: "%s | שבת פוד",
+    default:  "תורגיי | קייטרינג לשבת ואירועים",
+    template: "%s | תורגיי",
   },
   description:
-    "הזמינו אוכל ביתי טעים לשבת — סלטים, ממולאים, מנות בשר ועוף, ודגים. משלוח ביום שישי.",
-  keywords: ["שבת", "אוכל ביתי", "קולינרי", "סלטים", "ממולאים", "משלוח שישי", "B2B"],
+    "קייטרינג מקצועי לשבתות ואירועים — סלטים, ממולאים, מנות בשר ועוף, ודגים. בישול ביתי אמיתי עם מתכונים מסורתיים.",
+  keywords: ["תורגיי", "קייטרינג", "שבת", "אירועים", "אוכל ביתי", "סלטים", "ממולאים", "משלוח שישי"],
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_BASE_URL ?? "https://shabbatfood.co.il"
+    process.env.NEXT_PUBLIC_BASE_URL ?? "https://turgi.co.il"
   ),
   openGraph: {
     type:   "website",
     locale: "he_IL",
     url:    "/",
-    siteName: "שבת פוד",
+    siteName: "תורגיי",
   },
   robots: {
     index:  true,

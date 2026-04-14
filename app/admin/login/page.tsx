@@ -100,8 +100,8 @@ export default function AdminLoginPage() {
       <div className="w-full max-w-sm">
         {/* Logo */}
         <div className="text-center mb-8">
-          <div className="text-5xl mb-3">🕯️</div>
-          <h1 className="text-2xl font-black text-white">שבת פוד</h1>
+          <img src="/logo.png" alt="תורגיי" className="w-24 h-24 object-contain mx-auto mb-3" />
+          <h1 className="text-2xl font-black text-white">תורגיי</h1>
           <p className="text-brown-400 text-sm mt-1">ממשק ניהול</p>
         </div>
 

@@ -35,24 +35,32 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: "easeOut" }}
         >
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="inline-block bg-amber-500/20 border border-amber-400/40 text-amber-300 font-semibold text-sm px-4 py-1.5 rounded-full mb-6 tracking-wide"
+            className="flex justify-center mb-6"
           >
-            🕯️ ברוכים הבאים לשבת פוד
-          </motion.p>
+            <Image
+              src="/logo.png"
+              alt="תורגיי — קייטרינג לשבת ואירועים"
+              width={500}
+              height={500}
+              style={{ height: '240px', width: 'auto' }}
+              className="object-contain mix-blend-multiply"
+              priority
+            />
+          </motion.div>
 
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-black leading-tight mb-6">
-            האוכל הכי טוב
+            קייטרינג מקצועי
             <br />
-            <span className="text-amber-400">לשבת שלך</span>
+            <span className="text-amber-400">לשבת ואירועים</span>
           </h1>
 
           <p className="text-lg sm:text-xl md:text-2xl text-white/85 font-light max-w-2xl mx-auto mb-10 leading-relaxed">
             בישול ביתי אמיתי, מתכונים מסורתיים שעברו מדור לדור —<br className="hidden sm:block" />
-            מוכן עם אהבה לשולחן השבת שלכם
+            מוכן עם אהבה לכל שולחן ואירוע
           </p>
         </motion.div>
 

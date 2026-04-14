@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { ShoppingCart } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -33,18 +34,21 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-18">
+        <div className="flex items-center justify-between h-16 md:h-16">
 
           {/* Logo — first in DOM → appears on RIGHT in RTL */}
-          <Link href="/" className="flex items-center gap-2 flex-shrink-0">
-            <span className="text-2xl">🕯️</span>
-            <span
-              className={`text-xl font-black tracking-tight transition-colors ${
-                scrolled ? "text-brown-900" : "text-white"
+          <Link href="/" className="flex-shrink-0 h-full flex items-center" aria-label="תורגיי — דף הבית">
+            <Image
+              src="/logo.png"
+              alt="תורגיי — קייטרינג לשבת ואירועים"
+              width={200}
+              height={64}
+              style={{ height: '52px', width: 'auto' }}
+              className={`object-contain transition-all duration-300 ${
+                scrolled ? "" : "drop-shadow-[0_2px_6px_rgba(0,0,0,0.25)]"
               }`}
-            >
-              שבת פוד
-            </span>
+              priority
+            />
           </Link>
 
           {/* Desktop Nav — center */}

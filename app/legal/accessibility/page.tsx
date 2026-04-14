@@ -3,7 +3,7 @@ import LegalDraftBanner from "@/components/LegalDraftBanner";
 
 export const metadata: Metadata = {
   title: "הצהרת נגישות",
-  description: "הצהרת הנגישות של שבת פוד — מחויבות לנגישות דיגיטלית לפי תקן WCAG 2.0 AA.",
+  description: "הצהרת הנגישות של תורגיי — מחויבות לנגישות דיגיטלית לפי תקן WCAG 2.0 AA.",
 };
 
 /*
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 
 export default function AccessibilityPage() {
   const lastAudit    = "לא בוצע — דרוש לפני השקה";
-  const contactEmail = "hello@shabbatfood.co.il";
+  const contactEmail = "hello@turgi.co.il";
   const contactPhone = "050-000-0000";
 
   return (
@@ -35,7 +35,7 @@ export default function AccessibilityPage() {
 
       <Section title="מחויבות הנגישות שלנו">
         <p>
-          שבת פוד מחויבת להנגשת שירותיה הדיגיטליים לכלל המשתמשים, לרבות אנשים עם
+          תורגיי מחויבת להנגשת שירותיה הדיגיטליים לכלל המשתמשים, לרבות אנשים עם
           מוגבלויות. אנו שואפים לעמוד בדרישות תקן WCAG 2.0 ברמת התאמה AA, כנדרש
           בחוק שוויון זכויות לאנשים עם מוגבלות (תשנ&quot;ח-1998) ובתקנות הנגישות לשירות.
         </p>

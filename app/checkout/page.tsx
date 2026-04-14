@@ -141,7 +141,7 @@ export default function CheckoutPage() {
           >
             <ChevronRight size={22} aria-hidden="true" />
           </Link>
-          <span className="font-black text-xl text-brown-900">🕯️ שבת פוד</span>
+          <span className="font-black text-xl text-brown-900">תורגיי</span>
           <span className="mx-auto" />
           <div className="flex items-center gap-1 text-xs text-brown-400">
             <ShieldCheck size={14} className="text-green-500" aria-hidden="true" />

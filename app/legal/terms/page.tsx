@@ -3,7 +3,7 @@ import LegalDraftBanner from "@/components/LegalDraftBanner";
 
 export const metadata: Metadata = {
   title: "תנאי שימוש",
-  description: "תנאי השימוש של שבת פוד — זכויות וחובות בשימוש בשירות ובהזמנת מוצרים.",
+  description: "תנאי השימוש של תורגיי — זכויות וחובות בשימוש בשירות ובהזמנת מוצרים.",
 };
 
 /*
@@ -17,8 +17,8 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   const lastUpdated   = "אפריל 2026";
-  const businessName  = "שבת פוד";
-  const contactEmail  = "hello@shabbatfood.co.il";
+  const businessName  = "תורגיי";
+  const contactEmail  = "hello@turgi.co.il";
   const contactPhone  = "050-000-0000";
 
   return (
