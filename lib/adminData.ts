@@ -1,33 +1,19 @@
 /**
  * lib/adminData.ts
  *
- * Unified data-access layer for the Admin Dashboard.
+ * Unified async data-access layer for the Admin Dashboard.
+ * All data is stored in Supabase (PostgreSQL).
  *
- * ┌─────────────────────────────────────────────────────────────────────┐
- * │  DATA SOURCES                                                        │
- * │  Orders:   ORDERS_FILE_PATH  (.jsonl — one JSON per line)           │
- * │  Statuses: data/orderStatuses.json  (orderId → status map)          │
- * │  Menu:     data/menu.json (admin overrides) or data/menuData.ts     │
- * │  Settings: data/adminSettings.json                                  │
- * ├─────────────────────────────────────────────────────────────────────┤
- * │  Vercel / serverless note: File writes don't persist across         │
- * │  invocations. Replace all read/write with a database call when      │
- * │  connecting to Supabase / Neon / MongoDB.                           │
- * └─────────────────────────────────────────────────────────────────────┘
+ * Tables:
+ *   orders          — customer orders
+ *   order_statuses  — order status updates
+ *   menu_items      — menu (admin-managed)
+ *   settings        — admin settings (single JSON row)
  */
 
-import fs   from "fs";
-import path from "path";
+import { supabase } from "@/lib/supabase";
 import { menuItems as seedItems, categories as seedCategories } from "@/data/menuData";
 import type { Category } from "@/types";
-
-/* ─────────────────────────────────────────────────────────────────────────────
- * Path constants
- * ─────────────────────────────────────────────────────────────────────────── */
-const DATA_DIR      = path.join(process.cwd(), "data");
-const MENU_FILE     = path.join(DATA_DIR, "menu.json");
-const SETTINGS_FILE = path.join(DATA_DIR, "adminSettings.json");
-const STATUSES_FILE = path.join(DATA_DIR, "orderStatuses.json");
 
 /* ─────────────────────────────────────────────────────────────────────────────
  * Types
@@ -83,124 +69,172 @@ export interface AdminSettings {
   }[];
 }
 
-/* ─────────────────────────────────────────────────────────────────────────────
- * File helpers
- * ─────────────────────────────────────────────────────────────────────────── */
-function readJson<T>(filePath: string, fallback: T): T {
-  try {
-    if (!fs.existsSync(filePath)) return fallback;
-    return JSON.parse(fs.readFileSync(filePath, "utf-8")) as T;
-  } catch {
-    return fallback;
-  }
-}
-
-function writeJson(filePath: string, data: unknown): void {
-  fs.mkdirSync(path.dirname(filePath), { recursive: true });
-  fs.writeFileSync(filePath, JSON.stringify(data, null, 2), "utf-8");
-}
+const DEFAULT_SETTINGS: AdminSettings = {
+  businessHours: [],
+  orderDeadline: { dayOfWeek: 4, hour: 20, label: "חמישי 20:00" },
+  deliveryZones: [],
+  banner:        { enabled: false, text: "", type: "info" },
+  holidayBlocks: [],
+  notifications: {
+    whatsapp: { enabled: false, phone: "" },
+    email:    { enabled: true },
+    sms:      { enabled: false },
+  },
+  coupons: [],
+};
 
 /* ─────────────────────────────────────────────────────────────────────────────
  * ORDERS
  * ─────────────────────────────────────────────────────────────────────────── */
-export function getOrders(): AdminOrder[] {
-  const ordersFile = process.env.ORDERS_FILE_PATH;
-  const statuses   = readJson<Record<string, OrderStatus>>(STATUSES_FILE, {});
-  const orders: AdminOrder[] = [];
+export async function getOrders(): Promise<AdminOrder[]> {
+  const [{ data: orders, error: ordersErr }, { data: statuses, error: statusErr }] =
+    await Promise.all([
+      supabase
+        .from("orders")
+        .select("*")
+        .order("created_at", { ascending: false }),
+      supabase
+        .from("order_statuses")
+        .select("order_id, status"),
+    ]);
 
-  if (ordersFile && fs.existsSync(ordersFile)) {
-    const lines = fs.readFileSync(ordersFile, "utf-8")
-      .split("\n")
-      .filter(Boolean);
+  if (ordersErr) console.error("[adminData] getOrders:", ordersErr.message);
+  if (statusErr) console.error("[adminData] getStatuses:", statusErr.message);
 
-    for (const line of lines) {
-      try {
-        const order = JSON.parse(line) as StoredOrder;
-        orders.push({ ...order, status: statuses[order.orderId] ?? "new" });
-      } catch { /* skip malformed lines */ }
-    }
-  }
+  const statusMap: Record<string, OrderStatus> = {};
+  for (const s of statuses ?? []) statusMap[s.order_id] = s.status as OrderStatus;
 
-  // Newest first
-  return orders.sort(
-    (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-  );
+  return (orders ?? []).map((row) => ({
+    orderId:   row.order_id,
+    createdAt: row.created_at,
+    customer: {
+      name:         row.customer_name,
+      phone:        row.customer_phone,
+      email:        row.customer_email ?? "",
+      address:      row.customer_address ?? "",
+      city:         "",
+      deliveryTime: "",
+      notes:        row.notes ?? "",
+    },
+    items:      row.items ?? [],
+    totalPrice: Number(row.total_price),
+    ip:         row.ip,
+    status:     statusMap[row.order_id] ?? "new",
+  }));
 }
 
-export function getOrderById(orderId: string): AdminOrder | null {
-  return getOrders().find((o) => o.orderId === orderId) ?? null;
+export async function getOrderById(orderId: string): Promise<AdminOrder | null> {
+  const orders = await getOrders();
+  return orders.find((o) => o.orderId === orderId) ?? null;
 }
 
-export function updateOrderStatus(orderId: string, status: OrderStatus): void {
-  const statuses = readJson<Record<string, OrderStatus>>(STATUSES_FILE, {});
-  statuses[orderId] = status;
-  writeJson(STATUSES_FILE, statuses);
+export async function updateOrderStatus(orderId: string, status: OrderStatus): Promise<void> {
+  const { error } = await supabase
+    .from("order_statuses")
+    .upsert({ order_id: orderId, status, updated_at: new Date().toISOString() });
+
+  if (error) console.error("[adminData] updateOrderStatus:", error.message);
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
  * MENU
- * Menu items are stored in data/menu.json (admin runtime).
- * Falls back to menuData.ts seed if the file doesn't exist.
- * NOTE: The public-facing Menu.tsx still uses the static seed.
- *       Connect both to a DB to sync automatically.
+ * On first load, if the table is empty, seeds from menuData.ts.
  * ─────────────────────────────────────────────────────────────────────────── */
-export function getAdminMenuItems(): AdminMenuItem[] {
-  if (fs.existsSync(MENU_FILE)) {
-    return readJson<AdminMenuItem[]>(MENU_FILE, []);
+export async function getAdminMenuItems(): Promise<AdminMenuItem[]> {
+  const { data, error } = await supabase
+    .from("menu_items")
+    .select("*")
+    .order("sort_order", { ascending: true });
+
+  if (error) console.error("[adminData] getAdminMenuItems:", error.message);
+
+  // Auto-seed on first access
+  if (!error && (!data || data.length === 0)) {
+    const seed: AdminMenuItem[] = seedItems.map((item) => ({ ...item, available: true }));
+    await supabase.from("menu_items").insert(
+      seed.map((item, i) => ({
+        id:          item.id,
+        name:        item.name,
+        description: item.description,
+        price:       item.price,
+        image:       item.image,
+        category:    item.category,
+        badge:       item.badge ?? null,
+        available:   true,
+        sort_order:  i,
+      }))
+    );
+    return seed;
   }
-  // Seed from menuData.ts on first access
-  const seeded = seedItems.map((item) => ({ ...item, available: true }));
-  writeJson(MENU_FILE, seeded);
-  return seeded;
+
+  return (data ?? []).map((row) => ({
+    id:          row.id,
+    name:        row.name,
+    description: row.description ?? "",
+    price:       Number(row.price),
+    image:       row.image ?? "",
+    category:    row.category,
+    badge:       row.badge ?? undefined,
+    available:   row.available,
+  }));
 }
 
 export function getAdminCategories(): Category[] {
   return seedCategories;
 }
 
-export function saveAdminMenuItem(item: AdminMenuItem): void {
-  const items = getAdminMenuItems();
-  const idx   = items.findIndex((i) => i.id === item.id);
-  if (idx >= 0) items[idx] = item;
-  else           items.push(item);
-  writeJson(MENU_FILE, items);
+export async function saveAdminMenuItem(item: AdminMenuItem): Promise<void> {
+  const { error } = await supabase.from("menu_items").upsert({
+    id:          item.id,
+    name:        item.name,
+    description: item.description,
+    price:       item.price,
+    image:       item.image,
+    category:    item.category,
+    badge:       item.badge ?? null,
+    available:   item.available,
+  });
+
+  if (error) console.error("[adminData] saveAdminMenuItem:", error.message);
 }
 
-export function deleteAdminMenuItem(id: string): void {
-  const items = getAdminMenuItems().filter((i) => i.id !== id);
-  writeJson(MENU_FILE, items);
+export async function deleteAdminMenuItem(id: string): Promise<void> {
+  const { error } = await supabase.from("menu_items").delete().eq("id", id);
+  if (error) console.error("[adminData] deleteAdminMenuItem:", error.message);
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
  * SETTINGS
  * ─────────────────────────────────────────────────────────────────────────── */
-export function getSettings(): AdminSettings {
-  return readJson<AdminSettings>(SETTINGS_FILE, {
-    businessHours: [], orderDeadline: { dayOfWeek: 4, hour: 20, label: "חמישי 20:00" },
-    deliveryZones: [], banner: { enabled: false, text: "", type: "info" },
-    holidayBlocks: [], notifications: {
-      whatsapp: { enabled: false, phone: "" }, email: { enabled: true }, sms: { enabled: false },
-    },
-    coupons: [],
-  });
+export async function getSettings(): Promise<AdminSettings> {
+  const { data, error } = await supabase
+    .from("settings")
+    .select("data")
+    .eq("id", 1)
+    .single();
+
+  if (error || !data) return DEFAULT_SETTINGS;
+  return { ...DEFAULT_SETTINGS, ...(data.data as Partial<AdminSettings>) };
 }
 
-export function saveSettings(settings: AdminSettings): void {
-  writeJson(SETTINGS_FILE, settings);
+export async function saveSettings(settings: AdminSettings): Promise<void> {
+  const { error } = await supabase
+    .from("settings")
+    .upsert({ id: 1, data: settings });
+
+  if (error) console.error("[adminData] saveSettings:", error.message);
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
  * DASHBOARD STATS
  * ─────────────────────────────────────────────────────────────────────────── */
-export function getDashboardStats() {
-  const orders = getOrders();
-  const now    = new Date();
+export async function getDashboardStats() {
+  const orders = await getOrders();
+  const now      = new Date();
   const todayStr = now.toISOString().slice(0, 10);
 
-  const todayOrders = orders.filter((o) => o.createdAt.startsWith(todayStr));
-  const activeOrders = orders.filter((o) =>
-    ["new", "processing", "ready"].includes(o.status)
-  );
+  const todayOrders  = orders.filter((o) => o.createdAt.startsWith(todayStr));
+  const activeOrders = orders.filter((o) => ["new", "processing", "ready"].includes(o.status));
 
   const todayRevenue = todayOrders
     .filter((o) => o.status !== "cancelled")
@@ -210,7 +244,6 @@ export function getDashboardStats() {
     ? orders.reduce((s, o) => s + o.totalPrice, 0) / orders.length
     : 0;
 
-  // Top items by quantity ordered
   const itemCounts: Record<string, { name: string; count: number; revenue: number }> = {};
   for (const order of orders.filter((o) => o.status !== "cancelled")) {
     for (const item of order.items) {
@@ -219,11 +252,8 @@ export function getDashboardStats() {
       itemCounts[item.id].revenue += item.price * item.quantity;
     }
   }
-  const topItems = Object.values(itemCounts)
-    .sort((a, b) => b.count - a.count)
-    .slice(0, 5);
+  const topItems = Object.values(itemCounts).sort((a, b) => b.count - a.count).slice(0, 5);
 
-  // Last 7 days order counts
   const last7 = Array.from({ length: 7 }).map((_, i) => {
     const d = new Date(now);
     d.setDate(d.getDate() - (6 - i));
@@ -236,22 +266,22 @@ export function getDashboardStats() {
   });
 
   return {
-    totalOrders:   orders.length,
-    todayOrders:   todayOrders.length,
+    totalOrders:  orders.length,
+    todayOrders:  todayOrders.length,
     todayRevenue,
-    activeOrders:  activeOrders.length,
-    avgOrder:      Math.round(avgOrder),
+    activeOrders: activeOrders.length,
+    avgOrder:     Math.round(avgOrder),
     topItems,
     last7,
-    recentOrders:  orders.slice(0, 8),
+    recentOrders: orders.slice(0, 8),
   };
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
- * CUSTOMERS (derived from orders — no separate DB needed)
+ * CUSTOMERS (derived from orders)
  * ─────────────────────────────────────────────────────────────────────────── */
-export function getCustomers() {
-  const orders = getOrders();
+export async function getCustomers() {
+  const orders = await getOrders();
   const map: Record<string, {
     phone: string; name: string; email: string;
     orderCount: number; totalSpent: number; lastOrder: string;

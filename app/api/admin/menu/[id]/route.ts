@@ -4,7 +4,7 @@ import type { AdminMenuItem } from "@/lib/adminData";
 
 export async function GET(_req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const item = getAdminMenuItems().find((i) => i.id === id);
+  const item = (await getAdminMenuItems()).find((i) => i.id === id);
   if (!item) return NextResponse.json({ error: "פריט לא נמצא" }, { status: 404 });
   return NextResponse.json(item);
 }
@@ -13,7 +13,7 @@ export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: 
   const { id } = await params;
   try {
     const body = await req.json() as Partial<AdminMenuItem>;
-    const existing = getAdminMenuItems().find((i) => i.id === id);
+    const existing = (await getAdminMenuItems()).find((i) => i.id === id);
     if (!existing) return NextResponse.json({ error: "פריט לא נמצא" }, { status: 404 });
 
     const updated: AdminMenuItem = {
@@ -27,7 +27,7 @@ export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: 
       available:   body.available !== undefined ? Boolean(body.available) : existing.available,
     };
 
-    saveAdminMenuItem(updated);
+    await saveAdminMenuItem(updated);
     return NextResponse.json(updated);
   } catch (err) {
     console.error("[admin/menu PUT]", err);
@@ -37,8 +37,8 @@ export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: 
 
 export async function DELETE(_req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const existing = getAdminMenuItems().find((i) => i.id === id);
+  const existing = (await getAdminMenuItems()).find((i) => i.id === id);
   if (!existing) return NextResponse.json({ error: "פריט לא נמצא" }, { status: 404 });
-  deleteAdminMenuItem(id);
+  await deleteAdminMenuItem(id);
   return NextResponse.json({ success: true });
 }

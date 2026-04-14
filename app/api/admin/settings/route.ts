@@ -3,13 +3,13 @@ import { getSettings, saveSettings } from "@/lib/adminData";
 import type { AdminSettings } from "@/lib/adminData";
 
 export async function GET() {
-  return NextResponse.json(getSettings());
+  return NextResponse.json(await getSettings());
 }
 
 export async function PUT(req: NextRequest) {
   try {
     const body = await req.json() as AdminSettings;
-    saveSettings(body);
+    await saveSettings(body);
     return NextResponse.json({ success: true });
   } catch (err) {
     console.error("[admin/settings PUT]", err);

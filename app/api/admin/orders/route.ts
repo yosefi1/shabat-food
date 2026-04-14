@@ -8,7 +8,7 @@ export async function GET(req: NextRequest) {
     const status = searchParams.get("status") ?? "all";
     const date   = searchParams.get("date") ?? "";
 
-    let orders = getOrders();
+    let orders = await getOrders();
 
     if (status !== "all") orders = orders.filter((o) => o.status === status);
     if (date)             orders = orders.filter((o) => o.createdAt.startsWith(date));

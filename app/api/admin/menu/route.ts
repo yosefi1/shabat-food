@@ -5,7 +5,7 @@ import type { AdminMenuItem } from "@/lib/adminData";
 
 export async function GET() {
   return NextResponse.json({
-    items:      getAdminMenuItems(),
+    items:      await getAdminMenuItems(),
     categories: getAdminCategories(),
   });
 }
@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
       available:   body.available !== false,
     };
 
-    saveAdminMenuItem(item);
+    await saveAdminMenuItem(item);
     return NextResponse.json(item, { status: 201 });
   } catch (err) {
     console.error("[admin/menu POST]", err);

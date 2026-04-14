@@ -80,7 +80,16 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-brown-700 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-brown-500 text-sm">
-          <p>© {new Date().getFullYear()} תורגיי. כל הזכויות שמורות.</p>
+          <div className="flex items-center gap-4">
+            <p>© {new Date().getFullYear()} תורגיי. כל הזכויות שמורות.</p>
+            <Link
+              href="/admin"
+              className="text-brown-700 hover:text-brown-500 text-xs transition-colors"
+              aria-label="כניסת מנהל"
+            >
+              ניהול
+            </Link>
+          </div>
           <nav aria-label="קישורים משפטיים">
             <ul className="flex flex-wrap justify-center gap-x-5 gap-y-2">
               {legalLinks.map(({ href, label }) => (
