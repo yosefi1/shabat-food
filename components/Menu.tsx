@@ -2,10 +2,11 @@
 
 import { useState, useMemo, useId } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { menuItems, categories } from "@/data/menuData";
+import { categories } from "@/data/menuData";
+import type { MenuItem } from "@/types";
 import MenuCard from "./MenuCard";
 
-export default function Menu() {
+export default function Menu({ items }: { items: MenuItem[] }) {
   const [active, setActive] = useState("all");
   /* FIX L3 — respect prefers-reduced-motion for layout animations */
   const reducedMotion = useReducedMotion();
@@ -16,8 +17,8 @@ export default function Menu() {
   const tabId = (catId: string) => `${tabPrefix}-tab-${catId}`;
 
   const filtered = useMemo(
-    () => (active === "all" ? menuItems : menuItems.filter((i) => i.category === active)),
-    [active]
+    () => (active === "all" ? items : items.filter((i) => i.category === active)),
+    [active, items]
   );
 
   const activeCategory = categories.find((c) => c.id === active);
