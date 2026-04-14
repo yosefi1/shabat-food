@@ -180,20 +180,20 @@ export function OrderModal({
                   </tr>
                 ))}
               </tbody>
-              {order.totalPrice > 0 && (
-                <tfoot className="border-t border-gray-200">
-                  <tr>
-                    <td colSpan={2} className="pt-3 text-xs text-gray-500">משלוח</td>
-                    <td className="pt-3 text-left font-semibold text-sm">
-                      {deliveryFee === 0 ? "חינם" : `₪${deliveryFee}`}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td colSpan={2} className="pt-1.5 font-black text-gray-900">סה&quot;כ</td>
-                    <td className="pt-1.5 text-left font-black text-gray-900 text-lg">₪{grandTotal}</td>
-                  </tr>
-                </tfoot>
-              )}
+              <tfoot className="border-t border-gray-200">
+                <tr>
+                  <td colSpan={2} className="pt-3 text-xs text-gray-500">משלוח</td>
+                  <td className="pt-3 text-left font-semibold text-sm">
+                    {order.totalPrice === 0 ? "—" : deliveryFee === 0 ? "חינם" : `₪${deliveryFee}`}
+                  </td>
+                </tr>
+                <tr>
+                  <td colSpan={2} className="pt-1.5 font-black text-gray-900">סה&quot;כ</td>
+                  <td className="pt-1.5 text-left font-black text-gray-900 text-lg">
+                    {order.totalPrice === 0 ? "—" : `₪${grandTotal}`}
+                  </td>
+                </tr>
+              </tfoot>
             </table>
           </div>
 
