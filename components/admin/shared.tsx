@@ -200,10 +200,11 @@ export function OrderModal({
           {/* Customer — collapsible */}
           <div className="border border-gray-100 rounded-2xl overflow-hidden">
             <button
+              type="button"
               onClick={() => setCustomerOpen((o) => !o)}
-              className="w-full flex items-center justify-between px-4 py-3 bg-gray-50 hover:bg-gray-100 transition-colors"
+              className="w-full flex items-center justify-between px-4 py-3 bg-amber-50 hover:bg-amber-100 transition-colors cursor-pointer"
             >
-              <span className="font-bold text-gray-900 text-sm">פרטי לקוח</span>
+              <span className="font-bold text-amber-800 text-sm">▼ פרטי לקוח</span>
               {customerOpen
                 ? <ChevronUp size={16} className="text-gray-400" />
                 : <ChevronDown size={16} className="text-gray-400" />
