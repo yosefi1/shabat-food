@@ -1,0 +1,1501 @@
+[
+  {
+    "id": "sl-13",
+    "name": "חומוס ביתי",
+    "description": "חומוס קטיפתי ביתי עם טחינה מובחרת, שמן זית ופלפל — אמיתי וטרי",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=600&q=80",
+    "category": "salads",
+    "badge": "bestseller",
+    "available": true
+  },
+  {
+    "id": "sl-14",
+    "name": "טחינה ירוקה",
+    "description": "טחינה גולמית מובחרת מעורבת פטרוזיליה ועשבי תיבול ירוקים טריים",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=600&q=80",
+    "category": "salads",
+    "available": true
+  },
+  {
+    "id": "sl-15",
+    "name": "סלק מבושל",
+    "description": "סלק מבושל לשלמות ומתובל בעדינות — מתוק, עשיר וצבעוני",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1546069901-5ec6a79120b0?w=600&q=80",
+    "category": "salads",
+    "available": true
+  },
+  {
+    "id": "sl-16",
+    "name": "סלק חי וסלרי",
+    "description": "סלק גרוס טרי עם ניחוח סלרי מרענן — בריא, צבעוני וקליל",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1546069901-5ec6a79120b0?w=600&q=80",
+    "category": "salads",
+    "available": true
+  },
+  {
+    "id": "sl-17",
+    "name": "גזר מבושל",
+    "description": "גזר מבושל בתיבול עדין של כמון ולימון — מתוק ורך",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&q=80",
+    "category": "salads",
+    "available": true
+  },
+  {
+    "id": "sl-18",
+    "name": "גזר מגורד",
+    "description": "גזר גרוס טרי עם תיבול קליל ועשבי תיבול ירוקים — מרענן ובריא",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&q=80",
+    "category": "salads",
+    "available": true
+  },
+  {
+    "id": "sl-19",
+    "name": "טבולה",
+    "description": "פטרוזיליה טרייה עם בורגול, עגבניות, לימון ושמן זית — מסורתי ומרענן",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1505253758473-96b7015fcd40?w=600&q=80",
+    "category": "salads",
+    "badge": "popular",
+    "available": true
+  },
+  {
+    "id": "sl-20",
+    "name": "כרוב לבן בתחמיץ",
+    "description": "כרוב לבן פרוס דק בציר חמצמץ ביתי — קלאסיקה שלא משתנה",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80",
+    "category": "salads",
+    "available": true
+  },
+  {
+    "id": "sl-21",
+    "name": "כרוב לבן במיונז",
+    "description": "כרוב לבן קרמי ברוטב מיונז עשיר — קולסלו ביתי אהוב",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80",
+    "category": "salads",
+    "available": true
+  },
+  {
+    "id": "sl-22",
+    "name": "כרוב לבן עם חמוציות ושמיר",
+    "description": "כרוב לבן עם חמוציות אדומות ושמיר ירוק — צבעוני, מרענן ומיוחד",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80",
+    "category": "salads",
+    "badge": "new",
+    "available": true
+  },
+  {
+    "id": "sl-23",
+    "name": "כרוב אדום במיונז",
+    "description": "כרוב אדום קרמי ברוטב מיונז — ייחודי, עשיר בצבע ובטעם",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80",
+    "category": "salads",
+    "available": true
+  },
+  {
+    "id": "sl-24",
+    "name": "חציל יווני",
+    "description": "חציל מבושל בסגנון יווני עם שום, לימון ועשבי תיבול מדיטרניים",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1590301157890-4810ed352733?w=600&q=80",
+    "category": "salads",
+    "available": true
+  },
+  {
+    "id": "sl-25",
+    "name": "סלט ירקות",
+    "description": "ירקות טריים קצוצים עם שמן זית ולימון — פשוט, טרי ורענן",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80",
+    "category": "salads",
+    "available": true
+  },
+  {
+    "id": "sl-26",
+    "name": "חסה שרי נבטים",
+    "description": "עלי חסה ירוקים עם עגבניות שרי ונבטים טריים — קל ומרענן",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80",
+    "category": "salads",
+    "available": true
+  },
+  {
+    "id": "sl-27",
+    "name": "חציל מרוקאי",
+    "description": "חציל מבושל בסגנון מרוקאי עם פפריקה, כמון וכוסברה — ריחני ועשיר",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1590301157890-4810ed352733?w=600&q=80",
+    "category": "salads",
+    "badge": "popular",
+    "available": true
+  },
+  {
+    "id": "sl-28",
+    "name": "חציל במיונז",
+    "description": "חציל אפוי מוקרם ברוטב מיונז קטיפתי — עשיר, חלק ומנחם",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1590301157890-4810ed352733?w=600&q=80",
+    "category": "salads",
+    "available": true
+  },
+  {
+    "id": "sl-29",
+    "name": "חציל בטחינה",
+    "description": "חציל אפוי מעושן עם טחינה גולמית — בסגנון מסורתי ואותנטי",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1590301157890-4810ed352733?w=600&q=80",
+    "category": "salads",
+    "available": true
+  },
+  {
+    "id": "sl-30",
+    "name": "חציל פיקנטי",
+    "description": "חציל בתיבול חריף ומעורר — בשביל אוהבי הטעמים האמיצים והחזקים",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1590301157890-4810ed352733?w=600&q=80",
+    "category": "salads",
+    "available": true
+  },
+  {
+    "id": "sl-31",
+    "name": "חציל סיני",
+    "description": "חציל מוקפץ בסגנון מזרח אסייתי עם רוטב עשיר וטעמים מיוחדים",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1590301157890-4810ed352733?w=600&q=80",
+    "category": "salads",
+    "badge": "new",
+    "available": true
+  },
+  {
+    "id": "sl-32",
+    "name": "מטבוחה מרוקאית",
+    "description": "רוטב עגבניות ופלפלים מבושל לאט בתיבול מרוקאי מסורתי — ביתי ועמוק",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1590301157890-4810ed352733?w=600&q=80",
+    "category": "salads",
+    "badge": "popular",
+    "available": true
+  },
+  {
+    "id": "sl-33",
+    "name": "חמוצי הבית",
+    "description": "ירקות כבושים ביתיים מסורתיים — קריספי, חמצמץ ומרענן",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=600&q=80",
+    "category": "salads",
+    "available": true
+  },
+  {
+    "id": "sl-34",
+    "name": "בטטה בצ'ילי מתוק",
+    "description": "בטטה אפויה רכה עם ציפוי צ'ילי מתוק מגרה — מתוק, חריף וקסום",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1576337830398-ecc5e1dcaf11?w=600&q=80",
+    "category": "salads",
+    "available": true
+  },
+  {
+    "id": "sl-35",
+    "name": "שרי עם פסטו",
+    "description": "עגבניות שרי טריות עם רוטב פסטו ריחני — איטלקי ביתי ומרענן",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80",
+    "category": "salads",
+    "available": true
+  },
+  {
+    "id": "sl-36",
+    "name": "פלפל קלוי",
+    "description": "פלפלים קלויים שלמים עם שמן זית ושום — מתוק, עשיר ועמוק בטעם",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1590301157890-4810ed352733?w=600&q=80",
+    "category": "salads",
+    "badge": "popular",
+    "available": true
+  },
+  {
+    "id": "sl-37",
+    "name": "פלפל חריף מטוגן",
+    "description": "פלפלים חריפים מטוגנים — חריפות מהנה עם אופי ועוצמה",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1590301157890-4810ed352733?w=600&q=80",
+    "category": "salads",
+    "available": true
+  },
+  {
+    "id": "sl-38",
+    "name": "סלט ירוק עם חמוציות",
+    "description": "ירקות ירוקים טריים עם חמוציות אדומות ותיבול לימוני קליל",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80",
+    "category": "salads",
+    "available": true
+  },
+  {
+    "id": "sl-39",
+    "name": "סלט פסטה",
+    "description": "פסטה קרה עם ירקות, שמן זית ועשבי תיבול ריחניים — קל ומרענן",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=600&q=80",
+    "category": "salads",
+    "available": true
+  },
+  {
+    "id": "sl-40",
+    "name": "סלט קינואה",
+    "description": "קינואה מבושלת עם ירקות מגוונים ורוטב לימוני מרענן — בריא ומזין",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=600&q=80",
+    "category": "salads",
+    "badge": "new",
+    "available": true
+  },
+  {
+    "id": "sl-01",
+    "name": "שורש סלרי ומיונז",
+    "description": "שורש סלרי פרוס דק עם רוטב מיונז קרמי — קלאסיקה מרעננת ומסורתית",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80",
+    "category": "salads",
+    "available": true
+  },
+  {
+    "id": "sl-02",
+    "name": "תפו\"א במיונז",
+    "description": "תפוחי אדמה מבושלים ורכים ברוטב מיונז עשיר וקרמי — סלט אהוב תמיד",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=600&q=80",
+    "category": "salads",
+    "badge": "popular",
+    "available": true
+  },
+  {
+    "id": "sl-03",
+    "name": "מלפפון בשמיר",
+    "description": "מלפפון פרוס טרי עם שמיר ריחני ותיבול קליל ומרענן",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80",
+    "category": "salads",
+    "available": true
+  },
+  {
+    "id": "sl-04",
+    "name": "סלט עדשים שחורים וירק",
+    "description": "עדשים שחורות מבושלות עם ירקות טריים ותיבול לימוני מרענן",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1505253758473-96b7015fcd40?w=600&q=80",
+    "category": "salads",
+    "available": true
+  },
+  {
+    "id": "sl-05",
+    "name": "סלט קישואים בתחמיץ",
+    "description": "קישואים פרוסים דק בציר חמצמץ עדין — קליל ועשיר בטעם",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80",
+    "category": "salads",
+    "available": true
+  },
+  {
+    "id": "sl-06",
+    "name": "סלט זיתים מבושלים",
+    "description": "זיתים מבושלים בתיבולים מסורתיים — עשיר, סמיך ועמוק בטעם",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=600&q=80",
+    "category": "salads",
+    "available": true
+  },
+  {
+    "id": "sl-07",
+    "name": "סלט ארטישוק עם בצל סגול ופלפל קלוי",
+    "description": "לבבות ארטישוק עם בצל סגול מתוק ופלפלים קלויים — יפה ומיוחד",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1590301157890-4810ed352733?w=600&q=80",
+    "category": "salads",
+    "badge": "new",
+    "available": true
+  },
+  {
+    "id": "sl-08",
+    "name": "סלט פטריות מוקפצות בטריאקי",
+    "description": "פטריות טריות מוקפצות ברוטב טריאקי יפני — ייחודי, טעים ומפתיע",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=600&q=80",
+    "category": "salads",
+    "badge": "new",
+    "available": true
+  },
+  {
+    "id": "sl-09",
+    "name": "אצבעות סלק גזר וקולרבי בתחמיץ",
+    "description": "מקלות ירקות צבעוניים כבושים בציר חמצמץ ביתי — קריספי ומרענן",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&q=80",
+    "category": "salads",
+    "available": true
+  },
+  {
+    "id": "sl-10",
+    "name": "סחוג",
+    "description": "ממרח חריף מסורתי עם עגבניות, כוסברה ושמן זית — הכי אותנטי שיש",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80",
+    "category": "salads",
+    "badge": "popular",
+    "available": true
+  },
+  {
+    "id": "sl-11",
+    "name": "כבד קצוץ",
+    "description": "כבד עוף קצוץ ביתי עם בצל מקורמל — מתכון משפחתי קלאסי ועשיר",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=600&q=80",
+    "category": "salads",
+    "available": true
+  },
+  {
+    "id": "sl-12",
+    "name": "חציל בציפוי פירורי לחם",
+    "description": "פרוסות חציל קריספיות בציפוי פירורי לחם זהוב ופריך — מנה מנחמת",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1590301157890-4810ed352733?w=600&q=80",
+    "category": "salads",
+    "available": true
+  },
+  {
+    "id": "st-13",
+    "name": "עלי גפן ממולאים באורז וירק",
+    "description": "עלי גפן עדינים ממולאים אורז וירקות — צמחוני, מסורתי ומיוחד",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1590301157890-4810ed352733?w=600&q=80",
+    "category": "stuffed",
+    "badge": "popular",
+    "available": true
+  },
+  {
+    "id": "st-14",
+    "name": "בצל ממולא באורז ועגבניות",
+    "description": "בצל שלם ממולא אורז ועגבניות מבושל — עדין בטעם ומיוחד בהגשה",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?w=600&q=80",
+    "category": "stuffed",
+    "available": true
+  },
+  {
+    "id": "st-15",
+    "name": "כרוב ממולא באורז ועגבניות",
+    "description": "עלי כרוב ממולאים אורז ועגבניות ברוטב עגבניות — צמחוני וקלאסי",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?w=600&q=80",
+    "category": "stuffed",
+    "available": true
+  },
+  {
+    "id": "st-16",
+    "name": "קישוא ממולא באורז ועגבניות",
+    "description": "קישוא ממולא אורז ועגבניות — קל, מרענן ומבושל בעדינות",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?w=600&q=80",
+    "category": "stuffed",
+    "available": true
+  },
+  {
+    "id": "st-17",
+    "name": "פלפל ממולא באורז ועגבניות",
+    "description": "פלפל צבעוני ממולא אורז ועגבניות מבושל לשלמות — צמחוני ומרשים",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?w=600&q=80",
+    "category": "stuffed",
+    "available": true
+  },
+  {
+    "id": "st-18",
+    "name": "פלפלונים ממולאים באורז ועגבניות",
+    "description": "פלפלונים קטנטנים וחמודים ממולאים — יפים, צבעוניים ומיוחדים",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?w=600&q=80",
+    "category": "stuffed",
+    "available": true
+  },
+  {
+    "id": "st-19",
+    "name": "כרוב אדום ממולא באורז ועגבניות",
+    "description": "עלי כרוב אדום ממולאים אורז ועגבניות — ייחודי ומרשים בצבעו",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?w=600&q=80",
+    "category": "stuffed",
+    "available": true
+  },
+  {
+    "id": "st-20",
+    "name": "בצל סגול ממולא באורז ועגבניות",
+    "description": "בצל סגול שלם ממולא אורז ועגבניות — עדין ועם טעם מיוחד",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?w=600&q=80",
+    "category": "stuffed",
+    "available": true
+  },
+  {
+    "id": "st-21",
+    "name": "גזר ממולא באורז ועגבניות",
+    "description": "גזר שלם ממולא אורז ועגבניות — מרשים, מיוחד ומלא טעם",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&q=80",
+    "category": "stuffed",
+    "available": true
+  },
+  {
+    "id": "st-22",
+    "name": "סלק ממולא באורז ועגבניות",
+    "description": "סלק ממולא אורז ועגבניות — ייחודי, עשיר בצבע ומעורר עניין",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1546069901-5ec6a79120b0?w=600&q=80",
+    "category": "stuffed",
+    "badge": "new",
+    "available": true
+  },
+  {
+    "id": "st-23",
+    "name": "מיקס ממולאים עם פלפלונים",
+    "description": "מגוון ממולאים צבעוניים עם פלפלונים קטנטנים — חגיגי ומרהיב לאירועים",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?w=600&q=80",
+    "category": "stuffed",
+    "badge": "popular",
+    "available": true
+  },
+  {
+    "id": "st-24",
+    "name": "מיקס ממולאים",
+    "description": "מגוון ממולאים ביתיים — כל אחד מיוחד בטעמו, ביחד חגיגה של טעמים",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?w=600&q=80",
+    "category": "stuffed",
+    "badge": "bestseller",
+    "available": true
+  },
+  {
+    "id": "st-25",
+    "name": "מנגולד ממולא",
+    "description": "עלי מנגולד ממולאים אורז וירקות — עדין עם ניחוח ייחודי ובריאותי",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1590301157890-4810ed352733?w=600&q=80",
+    "category": "stuffed",
+    "available": true
+  },
+  {
+    "id": "st-01",
+    "name": "פלפל שושקה ממולא",
+    "description": "פלפלים אדומים מתוקים ממולאים תערובת אורז וירקות עשירה ומתובלת",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?w=600&q=80",
+    "category": "stuffed",
+    "badge": "popular",
+    "available": true
+  },
+  {
+    "id": "st-02",
+    "name": "חצילונים ממולאים באורז ועגבניות",
+    "description": "חצילים קטנים וחמודים ממולאים אורז ועגבניות — ביתי ומיוחד",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1590301157890-4810ed352733?w=600&q=80",
+    "category": "stuffed",
+    "available": true
+  },
+  {
+    "id": "st-03",
+    "name": "ארטישוק ממולא בשר",
+    "description": "לבבות ארטישוק ממולאים בשר טחון מתובל — עשיר, ייחודי ומרשים",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=600&q=80",
+    "category": "stuffed",
+    "badge": "new",
+    "available": true
+  },
+  {
+    "id": "st-04",
+    "name": "חציל ממולא בשר",
+    "description": "חציל שלם ממולא בשר טחון ועגבניות ברוטב — מנה ביתית קלאסית",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1590301157890-4810ed352733?w=600&q=80",
+    "category": "stuffed",
+    "available": true
+  },
+  {
+    "id": "st-05",
+    "name": "כרוב ממולא בשר",
+    "description": "עלי כרוב רכים ממולאים בשר ואורז ברוטב עגבניות מתבשל לאט",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80",
+    "category": "stuffed",
+    "badge": "bestseller",
+    "available": true
+  },
+  {
+    "id": "st-06",
+    "name": "בצל ממולא בשר ואורז",
+    "description": "בצל שלם ממולא בשר ואורז מתובל — מרשים בהגשה ועדין בטעם",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=600&q=80",
+    "category": "stuffed",
+    "available": true
+  },
+  {
+    "id": "st-07",
+    "name": "פלפל ממולא בשר",
+    "description": "פלפלים צבעוניים ממולאים בשר טחון, אורז ועגבניות — קלאסיקה ביתית",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?w=600&q=80",
+    "category": "stuffed",
+    "badge": "popular",
+    "available": true
+  },
+  {
+    "id": "st-08",
+    "name": "קובה חמוסטה כולל מרק",
+    "description": "קובה קלאסית ברוטב לימוני מסורתי, כולל מרק חמוסטה ביתי (מחיר ליחידה)",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1547592180-85f173990554?w=600&q=80",
+    "category": "stuffed",
+    "badge": "bestseller",
+    "available": true
+  },
+  {
+    "id": "st-09",
+    "name": "קובה אדום כולל מרק",
+    "description": "קובה ברוטב עגבניות ביתי עשיר, כולל מרק (מחיר ליחידה)",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1547592180-85f173990554?w=600&q=80",
+    "category": "stuffed",
+    "badge": "popular",
+    "available": true
+  },
+  {
+    "id": "st-10",
+    "name": "מאפה במילוי אסאדו",
+    "description": "מאפה פריך ועשיר ממולא אסאדו מפורק — ייחודי, עוצמתי ומרשים",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+    "category": "stuffed",
+    "badge": "new",
+    "available": true
+  },
+  {
+    "id": "st-11",
+    "name": "בורקס בשר",
+    "description": "בורקס פריך ומתפצפץ ממולא בשר טחון מתובל היטב — חם ומגרה",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+    "category": "stuffed",
+    "available": true
+  },
+  {
+    "id": "st-12",
+    "name": "פסטייה מרוקאית",
+    "description": "פסטיל מרוקאי קלאסי עם שכבות בצק פריך ומילוי עשיר ומסורתי",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+    "category": "stuffed",
+    "badge": "new",
+    "available": true
+  },
+  {
+    "id": "sd-01",
+    "name": "אורז לבן",
+    "description": "אורז לבן פירורי מבושל בשלמות — בסיס מושלם ומלווה אידיאלי לכל מנה",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1536304993881-ff86e0c9e65b?w=600&q=80",
+    "category": "sides",
+    "available": true
+  },
+  {
+    "id": "sd-02",
+    "name": "אורז מגלובה",
+    "description": "אורז מגלובה מסורתי עם ירקות ובשמים ייחודיים — מנה ביתית מרשימה",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1536304993881-ff86e0c9e65b?w=600&q=80",
+    "category": "sides",
+    "badge": "popular",
+    "available": true
+  },
+  {
+    "id": "sd-03",
+    "name": "אורז אטריות",
+    "description": "אורז קלאסי עם אטריות מטוגנות זהובות — אהוב על כולם תמיד",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1536304993881-ff86e0c9e65b?w=600&q=80",
+    "category": "sides",
+    "badge": "bestseller",
+    "available": true
+  },
+  {
+    "id": "sd-04",
+    "name": "אורז אשפלאו",
+    "description": "אורז אשפלאו ריחני מסורתי עם תבלינים מיוחדים ועדינים",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1536304993881-ff86e0c9e65b?w=600&q=80",
+    "category": "sides",
+    "available": true
+  },
+  {
+    "id": "sd-05",
+    "name": "מג'דרה",
+    "description": "עדשים ואורז עם בצל מקורמל ופריך — מנה קלאסית ומזינה מאוד",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1536304993881-ff86e0c9e65b?w=600&q=80",
+    "category": "sides",
+    "badge": "popular",
+    "available": true
+  },
+  {
+    "id": "sd-06",
+    "name": "תפו\"א פרוס בגריל",
+    "description": "תפוחי אדמה פרוסים מוזהבים על הגריל — קריספי בחוץ, רך בפנים",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=600&q=80",
+    "category": "sides",
+    "available": true
+  },
+  {
+    "id": "sd-07",
+    "name": "תפו\"א פלחים ברוזמרין ושמן זית",
+    "description": "פלחי תפוחי אדמה עם רוזמרין ריחני ושמן זית — צלויים לזהוב מושלם",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=600&q=80",
+    "category": "sides",
+    "badge": "popular",
+    "available": true
+  },
+  {
+    "id": "sd-08",
+    "name": "תפו\"א בייבי",
+    "description": "תפוחי אדמה בייבי שלמים, רכים, עסיסיים ומתובלים בעדינות",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=600&q=80",
+    "category": "sides",
+    "available": true
+  },
+  {
+    "id": "sd-09",
+    "name": "בטטה בשמן זית וצ'ילי מתוק",
+    "description": "בטטה אפויה עם ציפוי שמן זית וצ'ילי מתוק — מתוק, חריף ומגרה",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1576337830398-ecc5e1dcaf11?w=600&q=80",
+    "category": "sides",
+    "badge": "new",
+    "available": true
+  },
+  {
+    "id": "sd-10",
+    "name": "תפו\"א בטטה אפויים",
+    "description": "שילוב ייחודי של תפוחי אדמה ובטטה אפויים בתנור — מתוק ומנחם",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1576337830398-ecc5e1dcaf11?w=600&q=80",
+    "category": "sides",
+    "available": true
+  },
+  {
+    "id": "sd-11",
+    "name": "פירה",
+    "description": "פירה קרמי, חלק ומנחם — מוכן בחמאה וחלב, ביתי ועשיר",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=600&q=80",
+    "category": "sides",
+    "badge": "popular",
+    "available": true
+  },
+  {
+    "id": "sd-12",
+    "name": "קוסקוס",
+    "description": "קוסקוס מושלם עם ציר ירקות עשיר — מסורת צפון אפריקה על הצלחת",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?w=600&q=80",
+    "category": "sides",
+    "badge": "popular",
+    "available": true
+  },
+  {
+    "id": "sd-13",
+    "name": "ירקות לקוסקוס",
+    "description": "תבשיל ירקות עשיר ועסיסי — ליווי מושלם לקוסקוס או בפני עצמו",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1590301157890-4810ed352733?w=600&q=80",
+    "category": "sides",
+    "available": true
+  },
+  {
+    "id": "sd-14",
+    "name": "פסטה ברוטב עגבניות",
+    "description": "פסטה מבושלת ברוטב עגבניות ביתי עשיר עם שום ועשבי תיבול",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=600&q=80",
+    "category": "sides",
+    "available": true
+  },
+  {
+    "id": "sd-15",
+    "name": "מרק שעועית",
+    "description": "מרק שעועית סמיך ומחמם עם ירקות שורש — ביתי, מזין ומנחם",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1547592180-85f173990554?w=600&q=80",
+    "category": "sides",
+    "available": true
+  },
+  {
+    "id": "sd-16",
+    "name": "מרק עדשים",
+    "description": "מרק עדשים כתומות ריחני עם כמון ולימון — קלאסיקה מזינה ומחממת",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1547592180-85f173990554?w=600&q=80",
+    "category": "sides",
+    "badge": "popular",
+    "available": true
+  },
+  {
+    "id": "sd-17",
+    "name": "פשטידה מרוקאית",
+    "description": "פשטידה מרוקאית עשירה עם ביצים, תבלינים ייחודיים וטעם ביתי",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600&q=80",
+    "category": "sides",
+    "badge": "new",
+    "available": true
+  },
+  {
+    "id": "sd-18",
+    "name": "אורז ירוק",
+    "description": "אורז ירוק עם עשבי תיבול טריים ופטרוזיליה — צבעוני, ריחני ומיוחד",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1536304993881-ff86e0c9e65b?w=600&q=80",
+    "category": "sides",
+    "available": true
+  },
+  {
+    "id": "sd-19",
+    "name": "אורז אדום",
+    "description": "אורז עם רוטב עגבניות ותבלינים ייחודיים — עשיר, מגרה ומיוחד",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1536304993881-ff86e0c9e65b?w=600&q=80",
+    "category": "sides",
+    "available": true
+  },
+  {
+    "id": "sd-20",
+    "name": "כרובית מאודה",
+    "description": "כרובית מאודה רכה ועדינה — בריאה, קלה ומתאימה לכל תפריט",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1590301157890-4810ed352733?w=600&q=80",
+    "category": "sides",
+    "available": true
+  },
+  {
+    "id": "sd-21",
+    "name": "מוקפץ עם נודלס",
+    "description": "נודלס מוקפצים עם ירקות ורוטב אסייתי ייחודי — עשיר בטעמים",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=600&q=80",
+    "category": "sides",
+    "badge": "new",
+    "available": true
+  },
+  {
+    "id": "sd-22",
+    "name": "טנזיה מרוקאית",
+    "description": "תבשיל מרוקאי איטי עם שזיפים, לימון משומר ותבלינים מסורתיים",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80",
+    "category": "sides",
+    "badge": "popular",
+    "available": true
+  },
+  {
+    "id": "cv-01",
+    "name": "שעועית ירוקה מוקפצת",
+    "description": "שעועית ירוקה טרייה מוקפצת על אש גבוהה עם שום — קריספי ומרענן",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1590301157890-4810ed352733?w=600&q=80",
+    "category": "cookedveg",
+    "available": true
+  },
+  {
+    "id": "cv-02",
+    "name": "שעועית ירוקה ברוטב",
+    "description": "שעועית ירוקה ברוטב עגבניות ביתי מתובל — ביתי ומנחם",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1590301157890-4810ed352733?w=600&q=80",
+    "category": "cookedveg",
+    "available": true
+  },
+  {
+    "id": "cv-03",
+    "name": "אפונה וגזר",
+    "description": "תערובת אפונה ירוקה וגזר מבושלים — צבעוניים, קלים ומזינים",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&q=80",
+    "category": "cookedveg",
+    "available": true
+  },
+  {
+    "id": "cv-04",
+    "name": "אפונה עם סלרי",
+    "description": "אפונה ירוקה עם שורש סלרי מבושל — קל, עדין ומרענן",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1590301157890-4810ed352733?w=600&q=80",
+    "category": "cookedveg",
+    "available": true
+  },
+  {
+    "id": "cv-05",
+    "name": "זיתים מבושלים מרוקאים",
+    "description": "זיתים מבושלים בתיבול מרוקאי ייחודי — עשיר, עמוק ומסורתי",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=600&q=80",
+    "category": "cookedveg",
+    "available": true
+  },
+  {
+    "id": "cv-06",
+    "name": "לקט ירקות בגריל",
+    "description": "מגוון ירקות עונתיים מוזהבים על הגריל עם שמן זית ותבלינים",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1590301157890-4810ed352733?w=600&q=80",
+    "category": "cookedveg",
+    "badge": "popular",
+    "available": true
+  },
+  {
+    "id": "cv-07",
+    "name": "נודלס עם ירקות",
+    "description": "נודלס עדינים עם ירקות טריים מוקפצים — קל, מהיר ומרענן",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=600&q=80",
+    "category": "cookedveg",
+    "available": true
+  },
+  {
+    "id": "cv-08",
+    "name": "ירקות אנטי פסטי",
+    "description": "ירקות קלויים בשמן זית ובלסמי — בסגנון איטלקי ביתי ומרשים",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1590301157890-4810ed352733?w=600&q=80",
+    "category": "cookedveg",
+    "badge": "new",
+    "available": true
+  },
+  {
+    "id": "cv-09",
+    "name": "ארטישוק ופטריות",
+    "description": "לבבות ארטישוק עם פטריות מוקפצות בשמן זית — עשיר ועדין",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1590301157890-4810ed352733?w=600&q=80",
+    "category": "cookedveg",
+    "available": true
+  },
+  {
+    "id": "cv-10",
+    "name": "טנזיה מרוקאית",
+    "description": "תבשיל מרוקאי איטי עם שזיפים, לימון משומר ותבלינים מסורתיים",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80",
+    "category": "cookedveg",
+    "badge": "popular",
+    "available": true
+  },
+  {
+    "id": "cv-11",
+    "name": "ברוקולי וכרובית מוקפצים",
+    "description": "ברוקולי וכרובית טריים מוקפצים בשמן זית ושום — בריא ומלא טעם",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1590301157890-4810ed352733?w=600&q=80",
+    "category": "cookedveg",
+    "available": true
+  },
+  {
+    "id": "vg-01",
+    "name": "קציצות ירק",
+    "description": "קציצות ירק ביתיות עסיסיות מתערובת ירקות עונתיים — מנה צמחונית מנחמת",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600&q=80",
+    "category": "veggie",
+    "badge": "popular",
+    "available": true
+  },
+  {
+    "id": "vg-02",
+    "name": "קציצות כרובית וברוקולי",
+    "description": "קציצות קריספיות מכרובית וברוקולי טריים — בריא, טעים ומרשים",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600&q=80",
+    "category": "veggie",
+    "available": true
+  },
+  {
+    "id": "vg-03",
+    "name": "קציצות תפו\"א ערוק",
+    "description": "קציצות תפוחי אדמה קלאסיות — קריספיות בחוץ, רכות ומנחמות בפנים",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600&q=80",
+    "category": "veggie",
+    "badge": "bestseller",
+    "available": true
+  },
+  {
+    "id": "vg-04",
+    "name": "קציצות סלק",
+    "description": "קציצות סלק בצבע ורוד עז — ייחודיות, צבעוניות ומלאות טעם מפתיע",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600&q=80",
+    "category": "veggie",
+    "badge": "new",
+    "available": true
+  },
+  {
+    "id": "vg-05",
+    "name": "קציצות מנגולד",
+    "description": "קציצות מנגולד ירוקות ובריאות עם תיבול עדין ועשבי תיבול טריים",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600&q=80",
+    "category": "veggie",
+    "available": true
+  },
+  {
+    "id": "vg-06",
+    "name": "קציצות זוקיני",
+    "description": "קציצות זוקיני קלות ורעננות — מושלמות, קריספיות ומלאות טעם",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600&q=80",
+    "category": "veggie",
+    "available": true
+  },
+  {
+    "id": "vg-07",
+    "name": "קציצות בטטה",
+    "description": "קציצות בטטה מתוקות עם תיבול עדין — נפלאות, ייחודיות ומיוחדות",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600&q=80",
+    "category": "veggie",
+    "badge": "popular",
+    "available": true
+  },
+  {
+    "id": "vg-08",
+    "name": "קציצות קינואה וחמוציות",
+    "description": "קציצות קינואה בריאות עם חמוציות חמצמצות — ייחודי, מרשים ומזין",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600&q=80",
+    "category": "veggie",
+    "badge": "new",
+    "available": true
+  },
+  {
+    "id": "fr-01",
+    "name": "שניצלונים / שניצל",
+    "description": "שניצל עוף פריך בציפוי זהוב מושלם — קלאסי, אהוב ובלתי ניתן להתנגדות",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?w=600&q=80",
+    "category": "fried",
+    "badge": "bestseller",
+    "available": true
+  },
+  {
+    "id": "fr-02",
+    "name": "קובה בשר",
+    "description": "קובה בשר פריכה מבחוץ ועסיסית מבפנים — קלאסיקה מסורתית אהובה",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=600&q=80",
+    "category": "fried",
+    "badge": "popular",
+    "available": true
+  },
+  {
+    "id": "fr-03",
+    "name": "קובה פטריות",
+    "description": "קובה צמחונית ממולאת פטריות מוקפצות — ייחודי, מיוחד ומפתיע",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600&q=80",
+    "category": "fried",
+    "badge": "new",
+    "available": true
+  },
+  {
+    "id": "fr-04",
+    "name": "סיגר בשר",
+    "description": "סיגרים פריכים ממולאי בשר טחון ותבלינים — מנה שכולם אוהבים",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?w=600&q=80",
+    "category": "fried",
+    "badge": "popular",
+    "available": true
+  },
+  {
+    "id": "fr-05",
+    "name": "פסטל תפו\"א",
+    "description": "פסטל קריספי ממולא תפוחי אדמה מעוכים מתובלים — ביתי ומנחם",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600&q=80",
+    "category": "fried",
+    "available": true
+  },
+  {
+    "id": "fr-06",
+    "name": "אגרול ירקות",
+    "description": "אגרולים פריכים ממולאי ירקות מוקפצים — בסגנון סיני ביתי ומיוחד",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?w=600&q=80",
+    "category": "fried",
+    "available": true
+  },
+  {
+    "id": "fr-07",
+    "name": "מיני סמבוסק חומוס",
+    "description": "סמבוסקים קטנים ופריכים ממולאי חומוס מתובל — מושלמים לאירועים",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600&q=80",
+    "category": "fried",
+    "badge": "new",
+    "available": true
+  },
+  {
+    "id": "fr-08",
+    "name": "חטיף תירס",
+    "description": "חטיף תירס פריך ומגרה — אהוב על קטן וגדול, מושלם לאירועים",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600&q=80",
+    "category": "fried",
+    "available": true
+  },
+  {
+    "id": "fr-09",
+    "name": "כרובית מטוגנת",
+    "description": "כרובית פריכה מטוגנת בציפוי קריספי מושלם — ממכרת ומגרה",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?w=600&q=80",
+    "category": "fried",
+    "badge": "popular",
+    "available": true
+  },
+  {
+    "id": "fr-10",
+    "name": "מיקס מטוגנים",
+    "description": "מגוון מטוגנים ביתיים — לאירועים ואספקות גדולות, חגיגה של פריכות",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?w=600&q=80",
+    "category": "fried",
+    "badge": "popular",
+    "available": true
+  },
+  {
+    "id": "fi-01",
+    "name": "פילה אמנון ברוטב מזרחי",
+    "description": "פילה אמנון טרי ברוטב עגבניות מזרחי ריחני עם כוסברה ותבלינים",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=600&q=80",
+    "category": "fish",
+    "badge": "popular",
+    "available": true
+  },
+  {
+    "id": "fi-02",
+    "name": "פילה אמנון בעשבי תיבול",
+    "description": "פילה אמנון עדין עם עשבי תיבול טריים ושמן זית — רענן ומיוחד",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=600&q=80",
+    "category": "fish",
+    "available": true
+  },
+  {
+    "id": "fi-03",
+    "name": "פילה סלמון בעשבי תיבול",
+    "description": "פילה סלמון פרימיום עם עשבי תיבול ירוקים ולימון — עשיר ובריא",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&q=80",
+    "category": "fish",
+    "badge": "bestseller",
+    "available": true
+  },
+  {
+    "id": "fi-04",
+    "name": "פילה סלמון בחרדל ודבש",
+    "description": "סלמון אפוי עם ציפוי חרדל ודבש — שילוב מרתק של מתוק וחריף",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&q=80",
+    "category": "fish",
+    "badge": "new",
+    "available": true
+  },
+  {
+    "id": "fi-05",
+    "name": "פילה סלמון מזרחי",
+    "description": "סלמון ברוטב עגבניות ופלפלים בתיבול מזרחי עשיר — פרימיום ביתי",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&q=80",
+    "category": "fish",
+    "badge": "popular",
+    "available": true
+  },
+  {
+    "id": "fi-06",
+    "name": "פילה טונה מזרחי",
+    "description": "פילה טונה ברוטב עגבניות מזרחי מסורתי עם עגבניות ופלפלים",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=600&q=80",
+    "category": "fish",
+    "available": true
+  },
+  {
+    "id": "fi-07",
+    "name": "דג נסיכה מזרחי",
+    "description": "דג נסיכה ברוטב מזרחי ריחני — טרי, עדין ומלא טעמים מסורתיים",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=600&q=80",
+    "category": "fish",
+    "available": true
+  },
+  {
+    "id": "fi-08",
+    "name": "קציצות דגים ברוטב",
+    "description": "קציצות דג ביתיות ברוטב עגבניות ועשבי תיבול — קלאסי ומנחם",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=600&q=80",
+    "category": "fish",
+    "badge": "popular",
+    "available": true
+  },
+  {
+    "id": "fi-09",
+    "name": "קציצות דגים מתכון חדש מדג נסיכה",
+    "description": "קציצות דג נסיכה במתכון חדש ומיוחד — עדין, רך ועם טעם ייחודי",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=600&q=80",
+    "category": "fish",
+    "badge": "new",
+    "available": true
+  },
+  {
+    "id": "fi-10",
+    "name": "דג בקלה מטוגן",
+    "description": "בקלה פריכה מטוגנת בציפוי זהוב — קלאסיק ים-תיכוני אהוב",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=600&q=80",
+    "category": "fish",
+    "available": true
+  },
+  {
+    "id": "fi-11",
+    "name": "פילה מושט מטוגן",
+    "description": "פילה מושט פריך מטוגן בציפוי קלאסי — עדין וטעים מאוד",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=600&q=80",
+    "category": "fish",
+    "available": true
+  },
+  {
+    "id": "mt-01",
+    "name": "בשר צלי ברוטב השף (מס' 4)",
+    "description": "צלי בקר ממספר 4 ברוטב השף המיוחד — עסיסי, רך ומלא טעם",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80",
+    "category": "meat",
+    "available": true
+  },
+  {
+    "id": "mt-02",
+    "name": "בשר צלי ברוטב השף (מס' 5)",
+    "description": "צלי בקר פריים ממספר 5 ברוטב שף עשיר ומיוחד — מנה יוקרתית",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80",
+    "category": "meat",
+    "badge": "popular",
+    "available": true
+  },
+  {
+    "id": "mt-03",
+    "name": "בשר צלי ברוטב השף (מס' 6)",
+    "description": "נתח בקר ממספר 6 ברוטב שף מיוחד — רך, עסיסי ומומלץ מאוד",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80",
+    "category": "meat",
+    "available": true
+  },
+  {
+    "id": "mt-04",
+    "name": "קציצות בשר עם אפונה וסלרי",
+    "description": "קציצות בשר ביתיות ברוטב אפונה וסלרי עסיסי — ביתי ומנחם",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=600&q=80",
+    "category": "meat",
+    "badge": "popular",
+    "available": true
+  },
+  {
+    "id": "mt-05",
+    "name": "קציצות בשר ברוטב פלפלים",
+    "description": "קציצות בשר עסיסיות ברוטב פלפלים צבעוני ועשיר — מרשים ומגרה",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=600&q=80",
+    "category": "meat",
+    "available": true
+  },
+  {
+    "id": "mt-06",
+    "name": "קבב על האש",
+    "description": "קבב בקר עסיסי על האש, מתובל ועשיר — ישראלי, ריחני ומגרה",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1529694157872-4e0c0f3b238b?w=600&q=80",
+    "category": "meat",
+    "badge": "bestseller",
+    "available": true
+  },
+  {
+    "id": "mt-07",
+    "name": "בקר מוקפץ עם ירקות",
+    "description": "פרוסות בקר מוקפצות עם ירקות טריים ורוטב ייחודי — מזרח פוגש מערב",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=600&q=80",
+    "category": "meat",
+    "badge": "new",
+    "available": true
+  },
+  {
+    "id": "mt-08",
+    "name": "תבשיל אסאדו ברוטב יין",
+    "description": "אסאדו איטי ברוטב יין אדום ועשבי תיבול — מנה יוקרתית ומרשימה",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80",
+    "category": "meat",
+    "badge": "bestseller",
+    "available": true
+  },
+  {
+    "id": "mt-09",
+    "name": "קדרת בשר עם גרגירי חומוס",
+    "description": "קדרת בשר עשירה עם גרגירי חומוס מבושלים — ביתי, עמוק ומחמם",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80",
+    "category": "meat",
+    "badge": "popular",
+    "available": true
+  },
+  {
+    "id": "mt-10",
+    "name": "אסאדו מפורק",
+    "description": "אסאדו מבושל שעות ומפורק לחוטים, רך ועסיסי — מנה פרימיום מרשימה",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80",
+    "category": "meat",
+    "badge": "bestseller",
+    "available": true
+  },
+  {
+    "id": "mt-11",
+    "name": "מאפה פילו בשר",
+    "description": "שכבות בצק פילו פריכות ועדינות ממולאות בשר טחון מתובל",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+    "category": "meat",
+    "badge": "new",
+    "available": true
+  },
+  {
+    "id": "mt-12",
+    "name": "תפו\"א ממולא בשר (מפרום)",
+    "description": "תפוחי אדמה שלמים ממולאים בשר טחון ומתובל — מנה ביתית קלאסית",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=600&q=80",
+    "category": "meat",
+    "available": true
+  },
+  {
+    "id": "mt-13",
+    "name": "עוף שלם בגריל",
+    "description": "עוף שלם מחולק על הגריל עם תיבול מסורתי — זהוב, פריך ועסיסי",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1598103442097-8b74394b95c9?w=600&q=80",
+    "category": "meat",
+    "badge": "popular",
+    "available": true
+  },
+  {
+    "id": "mt-14",
+    "name": "כרעיים עוף בטנזיה",
+    "description": "כרעי עוף ברוטב טנזיה מרוקאי ריחני עם לימון משומר ותבלינים",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1598103442097-8b74394b95c9?w=600&q=80",
+    "category": "meat",
+    "available": true
+  },
+  {
+    "id": "mt-15",
+    "name": "גולש",
+    "description": "גולש עגל קלאסי עם ירקות שורש וציר עשיר — מחמם ומנחם",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80",
+    "category": "meat",
+    "available": true
+  },
+  {
+    "id": "mt-16",
+    "name": "כרעי עוף במאסחן",
+    "description": "כרעי עוף במאסחן לבנוני ריחני עם בצל מקורמל ופלפל אנגלי",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1598103442097-8b74394b95c9?w=600&q=80",
+    "category": "meat",
+    "badge": "new",
+    "available": true
+  },
+  {
+    "id": "mt-17",
+    "name": "סיגר במילוי בשר טחון וכבד",
+    "description": "סיגרים פריכים עם מילוי בשר וכבד עשיר ומיוחד — אהוב ומיוחד",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?w=600&q=80",
+    "category": "meat",
+    "available": true
+  },
+  {
+    "id": "mt-18",
+    "name": "קובה חמוסטה",
+    "description": "קובה מסורתית ברוטב חמוסטה לימוני — ביתי, אותנטי ומרגש",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1547592180-85f173990554?w=600&q=80",
+    "category": "meat",
+    "badge": "popular",
+    "available": true
+  },
+  {
+    "id": "mt-19",
+    "name": "קובה סלק",
+    "description": "קובה בסלק ברוטב עגבניות עמוק — ייחודי, מסורתי ומלא צבע",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1547592180-85f173990554?w=600&q=80",
+    "category": "meat",
+    "badge": "new",
+    "available": true
+  },
+  {
+    "id": "ch-01",
+    "name": "שניצל",
+    "description": "שניצל עוף פריך בציפוי זהוב מושלם — אהוב על כל הגילאים, קלאסי תמיד",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?w=600&q=80",
+    "category": "chicken",
+    "badge": "bestseller",
+    "available": true
+  },
+  {
+    "id": "ch-02",
+    "name": "כרעיים עוף מזרחי",
+    "description": "כרעי עוף ברוטב מזרחי עגבניות ופלפלים — ביתי, עשיר ומנחם",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1598103442097-8b74394b95c9?w=600&q=80",
+    "category": "chicken",
+    "badge": "popular",
+    "available": true
+  },
+  {
+    "id": "ch-03",
+    "name": "כרעיים עוף בסופריטו",
+    "description": "כרעי עוף ברוטב סופריטו סמיך וריחני — מסורתי וביתי",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1598103442097-8b74394b95c9?w=600&q=80",
+    "category": "chicken",
+    "available": true
+  },
+  {
+    "id": "ch-04",
+    "name": "נתחי עוף מוקפצים עם ירקות",
+    "description": "נתחי עוף מוקפצים עם ירקות טריים ורוטב ייחודי — קל ומזין",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=600&q=80",
+    "category": "chicken",
+    "badge": "new",
+    "available": true
+  },
+  {
+    "id": "ch-05",
+    "name": "חזה עוף ממולא בציפוי פריך",
+    "description": "חזה עוף ממולא בציפוי פריך מושלם — מנה מרשימה ומיוחדת לאירועים",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?w=600&q=80",
+    "category": "chicken",
+    "badge": "new",
+    "available": true
+  },
+  {
+    "id": "ch-06",
+    "name": "סטייק פרגית בגריל",
+    "description": "סטייק פרגית מוזהב על הגריל — עסיסי, עשיר בטעם ומגרה",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1598103442097-8b74394b95c9?w=600&q=80",
+    "category": "chicken",
+    "badge": "popular",
+    "available": true
+  },
+  {
+    "id": "ch-07",
+    "name": "פרגית במילוי פיסטוק",
+    "description": "פרגית ממולאת פיסטוק ועשבי תיבול — יוקרתי, מרשים ובלתי נשכח",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1598103442097-8b74394b95c9?w=600&q=80",
+    "category": "chicken",
+    "badge": "new",
+    "available": true
+  },
+  {
+    "id": "ch-08",
+    "name": "סטייק עוף על האש",
+    "description": "סטייק עוף על האש — פריך ומוזהב מבחוץ, עסיסי ורך מבפנים",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1598103442097-8b74394b95c9?w=600&q=80",
+    "category": "chicken",
+    "available": true
+  },
+  {
+    "id": "ch-09",
+    "name": "קציצות עוף ברוטב",
+    "description": "קציצות עוף עדינות ורכות ברוטב ביתי — קל, מזין ומנחם",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=600&q=80",
+    "category": "chicken",
+    "badge": "popular",
+    "available": true
+  },
+  {
+    "id": "ch-10",
+    "name": "כבד עוף על הגריל",
+    "description": "כבד עוף על הגריל עם בצל מקורמל — מסורתי, עשיר ומיוחד",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1598103442097-8b74394b95c9?w=600&q=80",
+    "category": "chicken",
+    "available": true
+  },
+  {
+    "id": "ch-11",
+    "name": "מעורב ירושלמי",
+    "description": "מעורב ירושלמי קלאסי — לבבות עוף ופרגיות על האש, ריחני ועוצמתי",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1529694157872-4e0c0f3b238b?w=600&q=80",
+    "category": "chicken",
+    "badge": "bestseller",
+    "available": true
+  },
+  {
+    "id": "ch-12",
+    "name": "שווארמה",
+    "description": "שווארמה עוף מסורתית עם תבלינים ייחודיים — מנה ישראלית אהובה ואייקונית",
+    "price": 0,
+    "image": "https://images.unsplash.com/photo-1529694157872-4e0c0f3b238b?w=600&q=80",
+    "category": "chicken",
+    "badge": "bestseller",
+    "available": true
+  }
+]

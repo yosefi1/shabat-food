@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>דו"ח ביקורת אבטחה, נגישות ופרטיות — שבת פוד</title>
+<style>
+  /* ── Reset & base ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 14px; }
+  body {
+    font-family: "Segoe UI", "Arial Hebrew", Arial, sans-serif;
+    direction: rtl;
+    color: #1e1e1e;
+    background: #ffffff;
+    padding: 32px 48px;
+    max-width: 960px;
+    margin: 0 auto;
+    line-height: 1.65;
+  }
+
+  /* ── Print ── */
+  @media print {
+    body { padding: 0; font-size: 11px; }
+    .no-print { display: none !important; }
+    h2 { page-break-after: avoid; }
+    table { page-break-inside: avoid; }
+    .section { page-break-inside: avoid; }
+    a { color: inherit !important; text-decoration: none !important; }
+  }
+
+  /* ── Cover ── */
+  .cover {
+    text-align: center;
+    padding: 48px 0 40px;
+    border-bottom: 3px solid #2C1810;
+    margin-bottom: 40px;
+  }
+  .cover .logo { font-size: 2.8rem; margin-bottom: 8px; }
+  .cover h1 {
+    font-size: 1.9rem;
+    color: #2C1810;
+    margin-bottom: 8px;
+  }
+  .cover .subtitle { color: #6b7280; font-size: 1rem; margin-bottom: 24px; }
+  .cover .meta {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    font-size: 0.85rem;
+    color: #4b5563;
+  }
+  .cover .meta span strong { color: #2C1810; }
+
+  /* ── Summary boxes ── */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+  .summary-box {
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+  }
+  .summary-box .count {
+    font-size: 2.2rem;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .summary-box .label { font-size: 0.8rem; font-weight: 600; }
+  .box-critical { background: #fef2f2; color: #991b1b; border: 1.5px solid #fca5a5; }
+  .box-high     { background: #fff7ed; color: #c2410c; border: 1.5px solid #fdba74; }
+  .box-medium   { background: #fefce8; color: #854d0e; border: 1.5px solid #fde047; }
+  .box-low      { background: #f0fdf4; color: #166534; border: 1.5px solid #86efac; }
+
+  /* ── Sections ── */
+  .section { margin-bottom: 40px; }
+  h2 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  h2.critical { background: #fef2f2; color: #7f1d1d; border-right: 5px solid #dc2626; }
+  h2.high     { background: #fff7ed; color: #7c2d12; border-right: 5px solid #ea580c; }
+  h2.medium   { background: #fefce8; color: #713f12; border-right: 5px solid #ca8a04; }
+  h2.low      { background: #f0fdf4; color: #14532d; border-right: 5px solid #16a34a; }
+  h2.info     { background: #f0f9ff; color: #0c4a6e; border-right: 5px solid #0284c7; }
+
+  /* ── Table ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    margin-bottom: 12px;
+  }
+  th {
+    background: #f9fafb;
+    font-weight: 700;
+    padding: 9px 12px;
+    border: 1px solid #e5e7eb;
+    text-align: right;
+  }
+  td {
+    padding: 9px 12px;
+    border: 1px solid #e5e7eb;
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: #f9fafb; }
+
+  /* ── Status pills ── */
+  .pill {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .pill-fixed   { background: #dcfce7; color: #166534; }
+  .pill-biz     { background: #dbeafe; color: #1e40af; }
+  .pill-pending { background: #fef3c7; color: #92400e; }
+
+  /* ── Category labels ── */
+  .cat {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 1px 7px;
+    border-radius: 4px;
+    margin-left: 4px;
+  }
+  .cat-sec  { background: #fce7f3; color: #831843; }
+  .cat-a11y { background: #ede9fe; color: #4c1d95; }
+  .cat-priv { background: #d1fae5; color: #065f46; }
+  .cat-legal{ background: #fef3c7; color: #78350f; }
+
+  /* ── Checklist ── */
+  .checklist { list-style: none; }
+  .checklist li {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px solid #f3f4f6;
+    font-size: 0.88rem;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .check-icon { flex-shrink: 0; font-size: 1rem; }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+    font-size: 0.78rem;
+    color: #9ca3af;
+    text-align: center;
+  }
+
+  /* ── Print button ── */
+  .print-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #2C1810;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0,0,0,.2);
+    z-index: 999;
+  }
+  .print-btn:hover { background: #4D2D15; }
+</style>
+</head>
+<body>
+
+<button class="print-btn no-print" onclick="window.print()">🖨️ שמור כ-PDF</button>
+
+<!-- ── COVER ── -->
+<div class="cover">
+  <div class="logo">🕯️</div>
+  <h1>דו"ח ביקורת מקיפה</h1>
+  <p class="subtitle">אבטחה · נגישות · פרטיות · ציות משפטי</p>
+  <div class="meta">
+    <span><strong>פרויקט:</strong> שבת פוד (Next.js)</span>
+    <span><strong>תאריך:</strong> אפריל 2026</span>
+    <span><strong>גרסה:</strong> 1.0</span>
+    <span><strong>סטטוס:</strong> לאחר תיקונים</span>
+  </div>
+</div>
+
+<!-- ── SUMMARY ── -->
+<div class="summary-grid">
+  <div class="summary-box box-critical">
+    <div class="count">7</div>
+    <div class="label">🔴 קריטי</div>
+  </div>
+  <div class="summary-box box-high">
+    <div class="count">8</div>
+    <div class="label">🟠 גבוה</div>
+  </div>
+  <div class="summary-box box-medium">
+    <div class="count">6</div>
+    <div class="label">🟡 בינוני</div>
+  </div>
+  <div class="summary-box box-low">
+    <div class="count">4</div>
+    <div class="label">🟢 נמוך</div>
+  </div>
+</div>
+
+<!-- ── CRITICAL ── -->
+<div class="section">
+  <h2 class="critical">🔴 קריטי — יש לתקן לפני כל מגע עם משתמשים אמיתיים</h2>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:6%">מזהה</th>
+        <th style="width:14%">תחום</th>
+        <th style="width:28%">בעיה</th>
+        <th style="width:30%">תיקון שבוצע</th>
+        <th style="width:12%">קובץ</th>
+        <th style="width:10%">סטטוס</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>C1</strong></td>
+        <td><span class="cat cat-sec">אבטחה</span></td>
+        <td>הזרקת HTML בתבניות אימייל — נתוני לקוח מוזנים ישירות למחרוזות HTML ללא escape</td>
+        <td>נוספה פונקציה <code>esc()</code> שמבצעת HTML-escape לכל ערך משתמש לפני הכנסה לתבנית</td>
+        <td><code>lib/email.ts</code></td>
+        <td><span class="pill pill-fixed">✅ תוקן</span></td>
+      </tr>
+      <tr>
+        <td><strong>C2</strong></td>
+        <td><span class="cat cat-sec">אבטחה</span></td>
+        <td>שדה <code>deliveryTime</code> מקבל כל מחרוזת — אין ולידציה מול ערכים מותרים</td>
+        <td>שונה מ-<code>z.string().min(1)</code> ל-<code>z.enum(DELIVERY_SLOTS)</code></td>
+        <td><code>lib/schemas.ts</code></td>
+        <td><span class="pill pill-fixed">✅ תוקן</span></td>
+      </tr>
+      <tr>
+        <td><strong>C3</strong></td>
+        <td><span class="cat cat-legal">משפטי</span></td>
+        <td>בנרים "הערה לעסק" גלויים לכל גולש בדפי המשפטי — פוגע באמינות</td>
+        <td>הוחלפו ב-<code>&lt;LegalDraftBanner&gt;</code> — מוצג רק כש-<code>SHOW_LEGAL_DRAFT_WARNINGS=true</code></td>
+        <td><code>components/LegalDraftBanner.tsx</code></td>
+        <td><span class="pill pill-fixed">✅ תוקן</span></td>
+      </tr>
+      <tr>
+        <td><strong>C4</strong></td>
+        <td><span class="cat cat-a11y">נגישות</span></td>
+        <td>מגירת עגלה ללא מלכוד מיקוד — משתמשי מקלדת עוברים לתוכן מאחורי הדיאלוג (WCAG 2.1.2)</td>
+        <td>נוסף מלכוד מיקוד מלא — Tab/Shift+Tab ממחזרים בתוך המגירה; Escape סוגר</td>
+        <td><code>components/CartDrawer.tsx</code></td>
+        <td><span class="pill pill-fixed">✅ תוקן</span></td>
+      </tr>
+      <tr>
+        <td><strong>C5</strong></td>
+        <td><span class="cat cat-a11y">נגישות</span></td>
+        <td>מגירת עגלה לא מעבירה מיקוד פנימה בפתיחה — קוראי מסך לא מודעים לדיאלוג (WCAG 2.4.3)</td>
+        <td>מיקוד עובר לאלמנט הראשון בפתיחה; מחזיר לאלמנט הפותח בסגירה</td>
+        <td><code>components/CartDrawer.tsx</code></td>
+        <td><span class="pill pill-fixed">✅ תוקן</span></td>
+      </tr>
+      <tr>
+        <td><strong>C6</strong></td>
+        <td><span class="cat cat-a11y">נגישות</span></td>
+        <td>דפוס ARIA שגוי: <code>role="tab"</code> ללא <code>role="tabpanel"</code> — עיוור לא יודע שהתוכן השתנה (WCAG 1.3.1)</td>
+        <td>נוסף <code>id</code> לכל tab, <code>aria-controls</code>, <code>role="tabpanel"</code> + <code>aria-labelledby</code> ברשת</td>
+        <td><code>components/Menu.tsx</code></td>
+        <td><span class="pill pill-fixed">✅ תוקן</span></td>
+      </tr>
+      <tr>
+        <td><strong>C7</strong></td>
+        <td><span class="cat cat-a11y">נגישות</span></td>
+        <td>קישור "דלג לתוכן" לא עובד ב-Safari — יעד ללא <code>tabindex="-1"</code> (WCAG 2.4.1)</td>
+        <td>נוסף <code>tabIndex={-1} className="outline-none"</code> ל-<code>&lt;main&gt;</code></td>
+        <td><code>app/page.tsx</code></td>
+        <td><span class="pill pill-fixed">✅ תוקן</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── HIGH ── -->
+<div class="section">
+  <h2 class="high">🟠 גבוה — יש לתקן לפני השקה</h2>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:6%">מזהה</th>
+        <th style="width:14%">תחום</th>
+        <th style="width:28%">בעיה</th>
+        <th style="width:30%">תיקון שבוצע</th>
+        <th style="width:12%">קובץ</th>
+        <th style="width:10%">סטטוס</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>H1</strong></td>
+        <td><span class="cat cat-priv">פרטיות</span></td>
+        <td>מספר טלפון מלא ב-console log — לוגים של Vercel נשמרים חודשים ונגישים לצוות</td>
+        <td>מספר מוסתר לפורמט <code>***-***-3456</code> לפני כתיבה ללוג</td>
+        <td><code>lib/orders.ts</code></td>
+        <td><span class="pill pill-fixed">✅ תוקן</span></td>
+      </tr>
+      <tr>
+        <td><strong>H2</strong></td>
+        <td><span class="cat cat-sec">אבטחה</span></td>
+        <td>מזהי הזמנה ניחושיים — timestamp + 4 ספרות אקראיות — ניתן לסרוק הזמנות</td>
+        <td>שונה ל-<code>crypto.randomUUID()</code> — 96 סיביות אקראיות קריפטוגרפית</td>
+        <td><code>app/api/checkout/route.ts</code></td>
+        <td><span class="pill pill-fixed">✅ תוקן</span></td>
+      </tr>
+      <tr>
+        <td><strong>H3</strong></td>
+        <td><span class="cat cat-sec">אבטחה</span></td>
+        <td><code>unsafe-eval</code> ב-CSP מופעל גם בהפקה — מחליש הגנה מפני XSS</td>
+        <td>מותנה ב-<code>NODE_ENV === "development"</code> — לא מופעל ב-build להפקה</td>
+        <td><code>next.config.ts</code></td>
+        <td><span class="pill pill-fixed">✅ תוקן</span></td>
+      </tr>
+      <tr>
+        <td><strong>H4</strong></td>
+        <td><span class="cat cat-a11y">נגישות</span></td>
+        <td>אינדיקטור גלילה ב-Hero לא מוסתר מ-AT — "גלגל מטה" + SVG מקודאנס לקוראי מסך</td>
+        <td>נוסף <code>aria-hidden="true"</code> לכל מיכל האינדיקטור</td>
+        <td><code>components/Hero.tsx</code></td>
+        <td><span class="pill pill-fixed">✅ תוקן</span></td>
+      </tr>
+      <tr>
+        <td><strong>H5</strong></td>
+        <td><span class="cat cat-a11y">נגישות</span></td>
+        <td>כפתורי CTA ב-Hero ללא עיצוב focus-visible — הטבעת אמבר דקה בלתי נראית על רקע כהה</td>
+        <td>שונה ל-<code>focus-visible:ring-4 focus-visible:ring-white</code> — טבעת לבנה עבה</td>
+        <td><code>components/Hero.tsx</code></td>
+        <td><span class="pill pill-fixed">✅ תוקן</span></td>
+      </tr>
+      <tr>
+        <td><strong>H6</strong></td>
+        <td><span class="cat cat-a11y">נגישות</span></td>
+        <td>הוספת פריט לעגלה לא מוכרזת לקוראי מסך — WCAG 1.3.3</td>
+        <td>נוסף <code>role="status" aria-live="polite"</code> שמכריז "<em>שם פריט</em> נוסף לעגלה"</td>
+        <td><code>components/MenuCard.tsx</code></td>
+        <td><span class="pill pill-fixed">✅ תוקן</span></td>
+      </tr>
+      <tr>
+        <td><strong>H7</strong></td>
+        <td><span class="cat cat-sec">אבטחה</span></td>
+        <td><code>frame-src 'none'</code> ב-CSP יחסום iframe של שער תשלומים בהפקה</td>
+        <td>תועד בהערה — לעדכן לדומיין שער התשלומים בעת חיבורו</td>
+        <td><code>next.config.ts</code></td>
+        <td><span class="pill pill-pending">⏳ עתידי</span></td>
+      </tr>
+      <tr>
+        <td><strong>H8</strong></td>
+        <td><span class="cat cat-a11y">נגישות</span></td>
+        <td>אייקון עגלה בכותרת המגירה אינו <code>aria-hidden</code> — מוקרא לשווא</td>
+        <td>נוסף <code>aria-hidden="true"</code> לאייקון הדקורטיבי</td>
+        <td><code>components/CartDrawer.tsx</code></td>
+        <td><span class="pill pill-fixed">✅ תוקן</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── MEDIUM ── -->
+<div class="section">
+  <h2 class="medium">🟡 בינוני — יש לטפל תוך 30 ימים מהשקה</h2>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:6%">מזהה</th>
+        <th style="width:14%">תחום</th>
+        <th style="width:28%">בעיה</th>
+        <th style="width:30%">תיקון / פעולה נדרשת</th>
+        <th style="width:12%">קובץ</th>
+        <th style="width:10%">סטטוס</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>M1</strong></td>
+        <td><span class="cat cat-legal">משפטי</span></td>
+        <td>מספר ח.פ / ע.מ לא מוצג — דרישת חוק עסקי ישראלי</td>
+        <td>מלא <code>[סמן כאן]</code> בדפי המשפטי עם מספר הרישום האמיתי</td>
+        <td>דפי <code>/legal/</code></td>
+        <td><span class="pill pill-biz">📋 עסקי</span></td>
+      </tr>
+      <tr>
+        <td><strong>M2</strong></td>
+        <td><span class="cat cat-legal">משפטי</span></td>
+        <td>מדיניות אלרגנים כללית מדי — "ננסה להתחשב" יוצרת חשיפה משפטית</td>
+        <td>ייעוץ עורך דין + הוספת טבלת אלרגנים ספציפית לפי דיני המזון הישראלי</td>
+        <td>תנאי שימוש</td>
+        <td><span class="pill pill-biz">📋 עסקי</span></td>
+      </tr>
+      <tr>
+        <td><strong>M3</strong></td>
+        <td><span class="cat cat-priv">פרטיות</span></td>
+        <td>כתובת IP נשמרת ללא מדיניות מחיקה מוגדרת בקוד</td>
+        <td>הוסף שדה TTL/retention לסכמת מסד נתונים בעת חיבורו; תועד בפרטיות</td>
+        <td><code>lib/orders.ts</code></td>
+        <td><span class="pill pill-pending">⏳ בעת DB</span></td>
+      </tr>
+      <tr>
+        <td><strong>M4</strong></td>
+        <td><span class="cat cat-a11y">נגישות</span></td>
+        <td>emoji בתוויות badges ("🔥" "⭐" "✨") מוקראות על ידי קוראי מסך</td>
+        <td>badge מפוצל — emoji ב-<code>aria-hidden</code>, טקסט ב-<code>.sr-only</code></td>
+        <td><code>components/MenuCard.tsx</code></td>
+        <td><span class="pill pill-fixed">✅ תוקן</span></td>
+      </tr>
+      <tr>
+        <td><strong>M5</strong></td>
+        <td><span class="cat cat-sec">אבטחה</span></td>
+        <td>Rate limiter ב-Map לא מובטח לנקות — דליפת זיכרון ב-Node ארוך טווח</td>
+        <td>לשדרג ל-Upstash Redis בפריסה על Vercel; קביל זמנית לסביבת פיתוח</td>
+        <td><code>lib/rateLimit.ts</code></td>
+        <td><span class="pill pill-pending">⏳ עתידי</span></td>
+      </tr>
+      <tr>
+        <td><strong>M6</strong></td>
+        <td><span class="cat cat-priv">פרטיות</span></td>
+        <td>קישור מדיניות פרטיות באימייל נופל ל-<code>""</code> אם BASE_URL לא מוגדר</td>
+        <td>ברירת מחדל שונה ל-<code>"https://shabbatfood.co.il"</code></td>
+        <td><code>lib/email.ts</code></td>
+        <td><span class="pill pill-fixed">✅ תוקן</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── LOW ── -->
+<div class="section">
+  <h2 class="low">🟢 נמוך — שיפור מומלץ</h2>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:6%">מזהה</th>
+        <th style="width:14%">תחום</th>
+        <th style="width:36%">בעיה</th>
+        <th style="width:34%">המלצה</th>
+        <th style="width:10%">סטטוס</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>L1</strong></td>
+        <td><span class="cat cat-a11y">נגישות</span></td>
+        <td>ערכי "אודות" ב-<code>div</code> — מבנה סמנטי <code>&lt;ul&gt;/&lt;li&gt;</code> יהיה מתאים יותר</td>
+        <td>שינוי ל-<code>&lt;ul class="values-list"&gt;</code> — שיפור קל, אינו הפרת WCAG</td>
+        <td><span class="pill pill-pending">⏳ אופציונלי</span></td>
+      </tr>
+      <tr>
+        <td><strong>L2</strong></td>
+        <td><span class="cat cat-a11y">נגישות</span></td>
+        <td>טיימר ספירה לאחור ללא שקול נגיש — עיוורים לא יכולים לראות את זמן הסגירה</td>
+        <td>הוסף טקסט <code>sr-only</code> המציג "X ימים נותרו" ללא עדכון שניות</td>
+        <td><span class="pill pill-pending">⏳ אופציונלי</span></td>
+      </tr>
+      <tr>
+        <td><strong>L3</strong></td>
+        <td><span class="cat cat-a11y">נגישות</span></td>
+        <td>אנימציית layout ב-Menu עשויה להיות מעיקה — <code>prefers-reduced-motion</code></td>
+        <td><code>useReducedMotion()</code> נוסף ב-Menu.tsx + כסוי CSS גלובלי קיים</td>
+        <td><span class="pill pill-fixed">✅ תוקן</span></td>
+      </tr>
+      <tr>
+        <td><strong>L4</strong></td>
+        <td><span class="cat cat-legal">משפטי/SEO</span></td>
+        <td>דפי מידע משפטי ללא <code>canonical</code> URL — סיכון תוכן כפול בגוגל</td>
+        <td>הוסף <code>alternates: { canonical: "/legal/..." }</code> ל-metadata כל דף</td>
+        <td><span class="pill pill-pending">⏳ אופציונלי</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── PRE-LAUNCH CHECKLIST ── -->
+<div class="section">
+  <h2 class="info">📋 רשימת פעולות נדרשות לפני השקה</h2>
+  <p style="margin-bottom:16px; color:#4b5563; font-size:0.88rem;">
+    הפריטים הבאים אינם ניתנים לתיקון בקוד — נדרשת פעולה עסקית, משפטית, או בנוגע לספקים חיצוניים.
+  </p>
+  <ul class="checklist">
+    <li>
+      <span class="check-icon">🔴</span>
+      <div>
+        <strong>ביקורת נגישות על ידי מורשה נגישות (ICTA)</strong> — חובה לפי חוק שוויון זכויות לאנשים עם מוגבלות (תשנ"ח-1998). יש לקבל תעודת נגישות לפני פרסום.
+      </div>
+    </li>
+    <li>
+      <span class="check-icon">🔴</span>
+      <div>
+        <strong>ביקורת משפטית של כל דפי המשפטי</strong> — מדיניות פרטיות, תנאי שימוש, מדיניות ביטולים. עורך דין מומחה בדיני אינטרנט ומסחר ישראלי.
+      </div>
+    </li>
+    <li>
+      <span class="check-icon">🔴</span>
+      <div>
+        <strong>מילוי כל <code>[סמן כאן]</code> בדפי המשפטי</strong> — מספר ח.פ / ע.מ, כתובת עסק, תקופות שמירת נתונים, תנאי ביטול מדויקים.
+      </div>
+    </li>
+    <li>
+      <span class="check-icon">🔴</span>
+      <div>
+        <strong>חיבור שער תשלומים (Grow / Meshulam)</strong> — יש לרשום חשבון עסקי, לקבל API credentials, ולעדכן <code>frame-src</code> ב-CSP לדומיין שער התשלומים.
+      </div>
+    </li>
+    <li>
+      <span class="check-icon">🔴</span>
+      <div>
+        <strong>הגדרת כל משתני הסביבה ב-Vercel</strong> — SMTP_HOST, SMTP_USER, SMTP_PASS, EMAIL_FROM, EMAIL_BUSINESS, NEXT_PUBLIC_BASE_URL, ORDERS_FILE_PATH (אם רלוונטי).
+      </div>
+    </li>
+    <li>
+      <span class="check-icon">🔴</span>
+      <div>
+        <strong>הגדרת מחירים בתפריט</strong> — כל המחירים מוצגים כ-"??" כרגע. יש לעדכן <code>data/menuData.ts</code> עם המחירים הנכונים.
+      </div>
+    </li>
+    <li>
+      <span class="check-icon">🟡</span>
+      <div>
+        <strong>בדיקת E2E מלאה</strong> — הזמנת ניסיון מלאה: טופס → API → שמירה → אימייל → אישור. בדיקה על iOS Safari ו-Android Chrome.
+      </div>
+    </li>
+    <li>
+      <span class="check-icon">🟡</span>
+      <div>
+        <strong>שדרוג Rate Limiting ל-Upstash Redis</strong> — הגרסה הנוכחית (in-memory) לא עובדת על serverless (Vercel). נדרש לפני עומס אמיתי.
+      </div>
+    </li>
+    <li>
+      <span class="check-icon">🟡</span>
+      <div>
+        <strong>הוספת CAPTCHA לטופס הזמנה</strong> — hCaptcha או Cloudflare Turnstile — למניעת הזמנות בוטים.
+      </div>
+    </li>
+    <li>
+      <span class="check-icon">🟡</span>
+      <div>
+        <strong>פתרון אחסון הזמנות לסביבת Vercel</strong> — <code>ORDERS_FILE_PATH</code> לא עובד על serverless. הצעה: Supabase (free tier), Google Sheets API, או Vercel Postgres.
+      </div>
+    </li>
+    <li>
+      <span class="check-icon">🟢</span>
+      <div>
+        <strong>הוספת SPF/DKIM/DMARC לדומיין האימייל</strong> — למניעת נפילת אימיילי אישור לספאם.
+      </div>
+    </li>
+    <li>
+      <span class="check-icon">🟢</span>
+      <div>
+        <strong>ניטור שגיאות בהפקה</strong> — חיבור Sentry (free tier) לקליטת exceptions בזמן אמת.
+      </div>
+    </li>
+  </ul>
+</div>
+
+<!-- ── IMPLEMENTED PROTECTIONS ── -->
+<div class="section">
+  <h2 class="info">✅ הגנות שכבר מיושמות בקוד</h2>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:30%">הגנה</th>
+        <th style="width:40%">פירוט</th>
+        <th style="width:30%">קובץ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>כותרות HTTP אבטחה</td><td>CSP, X-Frame-Options, HSTS, X-Content-Type-Options, Referrer-Policy, Permissions-Policy</td><td><code>next.config.ts</code></td></tr>
+      <tr><td>Rate Limiting</td><td>מקסימום 5 בקשות לדקה / 10 דקות לכל IP על נקודת הזמנה</td><td><code>lib/rateLimit.ts</code></td></tr>
+      <tr><td>ולידציה Zod</td><td>Schema אחד לקליינט ולשרת — בלתי אפשרי לגלישה בין כללים</td><td><code>lib/schemas.ts</code></td></tr>
+      <tr><td>ניקוי קלט</td><td>Strip HTML/XSS לפני ולידציה Zod — שכבת הגנה כפולה</td><td><code>lib/sanitize.ts</code></td></tr>
+      <tr><td>גודל payload</td><td>דחיית בקשות מעל 50KB — מניעת payload flooding</td><td><code>app/api/checkout/route.ts</code></td></tr>
+      <tr><td>Content-Type guard</td><td>דחיית כל בקשה שאינה <code>application/json</code></td><td><code>app/api/checkout/route.ts</code></td></tr>
+      <tr><td>Zod .strict() על פריטי עגלה</td><td>דחיית מפתחות לא צפויים — מניעת prototype pollution</td><td><code>lib/schemas.ts</code></td></tr>
+      <tr><td>מלכוד מיקוד בדיאלוג</td><td>Tab/Shift+Tab מחזורי + Escape לסגירה — WCAG 2.1</td><td><code>components/CartDrawer.tsx</code></td></tr>
+      <tr><td>Reduced Motion</td><td>CSS + Framer Motion — כל אנימציות מושבתות לפי העדפת מערכת ההפעלה</td><td><code>globals.css</code>, <code>Menu.tsx</code></td></tr>
+      <tr><td>Skip Link</td><td>קישור "דלג לתוכן" נגיש — WCAG 2.4.1 Level A</td><td><code>app/layout.tsx</code></td></tr>
+      <tr><td>aria-live לעגלה</td><td>הוספת פריט מוכרזת לקוראי מסך — WCAG 1.3.3</td><td><code>components/MenuCard.tsx</code></td></tr>
+      <tr><td>Consent checkbox</td><td>הסכמה לתנאי שימוש ופרטיות — חובה לפני שליחת הזמנה</td><td><code>app/checkout/page.tsx</code></td></tr>
+      <tr><td>Cookie Consent Banner</td><td>הודעת LocalStorage — גלוי בביקור ראשון</td><td><code>components/CookieConsent.tsx</code></td></tr>
+      <tr><td>HTML escape באימיילים</td><td>פונקציית <code>esc()</code> עוטפת כל ערך משתמש בתבניות HTML</td><td><code>lib/email.ts</code></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── FOOTER ── -->
+<div class="footer">
+  <p>דו"ח זה הופק אוטומטית על ידי ביקורת קוד — אפריל 2026 · שבת פוד &copy; 2026</p>
+  <p style="margin-top:6px;">דו"ח זה אינו מחליף ביקורת אבטחה מקצועית, ביקורת נגישות על ידי מורשה נגישות, או ייעוץ משפטי.</p>
+</div>
+
+</body>
+</html>

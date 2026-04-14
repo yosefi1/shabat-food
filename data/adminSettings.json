@@ -1,0 +1,25 @@
+{
+  "businessHours": [
+    { "day": "ראשון",  "isOpen": true,  "open": "08:00", "close": "20:00" },
+    { "day": "שני",    "isOpen": true,  "open": "08:00", "close": "20:00" },
+    { "day": "שלישי", "isOpen": true,  "open": "08:00", "close": "20:00" },
+    { "day": "רביעי", "isOpen": true,  "open": "08:00", "close": "20:00" },
+    { "day": "חמישי", "isOpen": true,  "open": "08:00", "close": "20:00" },
+    { "day": "שישי",  "isOpen": true,  "open": "08:00", "close": "12:00" },
+    { "day": "שבת",   "isOpen": false, "open": "",      "close": ""      }
+  ],
+  "orderDeadline": { "dayOfWeek": 4, "hour": 20, "label": "חמישי 20:00" },
+  "deliveryZones": [
+    { "id": "tlv",  "name": "תל אביב",      "fee": 25, "minOrder": 150, "freeFrom": 200 },
+    { "id": "gush", "name": "גוש דן",       "fee": 35, "minOrder": 200, "freeFrom": 300 },
+    { "id": "jlm",  "name": "ירושלים",      "fee": 50, "minOrder": 250, "freeFrom": 400 }
+  ],
+  "banner": { "enabled": false, "text": "", "type": "info" },
+  "holidayBlocks": [],
+  "notifications": {
+    "whatsapp": { "enabled": false, "phone": "" },
+    "email":    { "enabled": true },
+    "sms":      { "enabled": false }
+  },
+  "coupons": []
+}

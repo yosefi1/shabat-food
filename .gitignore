@@ -33,6 +33,10 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
+# Order data — contains customer PII (name, phone, email, address)
+data/orders.jsonl
+data/orderStatuses.json
+
 # vercel
 .vercel
 

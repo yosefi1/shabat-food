@@ -9,7 +9,8 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main>
+      {/* tabindex="-1" enables programmatic focus from the skip link (WCAG 2.4.1 fix C7) */}
+      <main id="main-content" tabIndex={-1} className="outline-none">
         <Hero />
         <Menu />
         <AboutSection />

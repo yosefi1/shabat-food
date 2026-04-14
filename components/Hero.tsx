@@ -63,16 +63,18 @@ export default function Hero() {
           transition={{ delay: 0.4, duration: 0.7 }}
           className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
         >
+          {/* FIX H5 — explicit focus-visible rings; global CSS ring may be
+              invisible against the dark hero background at 2px. */}
           <a
             href="#menu"
-            className="inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 active:scale-95 text-white font-bold py-4 px-10 rounded-2xl text-lg transition-all shadow-lg shadow-amber-500/30"
+            className="inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 active:scale-95 focus-visible:ring-4 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent focus-visible:outline-none text-white font-bold py-4 px-10 rounded-2xl text-lg transition-all shadow-lg shadow-amber-500/30"
           >
             לתפריט המלא
-            <span className="text-xl">←</span>
+            <span aria-hidden="true">←</span>
           </a>
           <a
             href="#about"
-            className="inline-flex items-center justify-center border-2 border-white/40 hover:border-white/80 hover:bg-white/10 text-white font-semibold py-4 px-10 rounded-2xl text-lg transition-all"
+            className="inline-flex items-center justify-center border-2 border-white/40 hover:border-white/80 hover:bg-white/10 focus-visible:ring-4 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent focus-visible:outline-none text-white font-semibold py-4 px-10 rounded-2xl text-lg transition-all"
           >
             קראו עלינו
           </a>
@@ -88,11 +90,14 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* FIX H4 — purely decorative; hidden from all AT (WCAG 1.1.1).
+          The bouncing animation and "גלגל מטה" text convey nothing to screen reader users
+          that isn't already available by navigating the page normally. */}
       <motion.div
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-white/50"
         animate={{ y: [0, 8, 0] }}
         transition={{ repeat: Infinity, duration: 2.2, ease: "easeInOut" }}
+        aria-hidden="true"
       >
         <span className="text-xs font-light tracking-widest">גלגל מטה</span>
         <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
