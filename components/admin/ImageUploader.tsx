@@ -173,6 +173,8 @@ export default function ImageUploader({ value, onChange }: Props) {
               zoom={zoom}
               rotation={rotation}
               aspect={4 / 3}
+              minZoom={0.1}
+              restrictPosition={false}
               onCropChange={setCrop}
               onZoomChange={setZoom}
               onCropComplete={onCropComplete}
@@ -187,7 +189,7 @@ export default function ImageUploader({ value, onChange }: Props) {
           <div className="bg-gray-800 px-4 py-4 space-y-3">
             <div className="flex items-center gap-3">
               <ZoomOut size={15} className="text-gray-400 flex-shrink-0" />
-              <input type="range" min={1} max={3} step={0.05} value={zoom}
+              <input type="range" min={0.1} max={3} step={0.05} value={zoom}
                 onChange={(e) => setZoom(Number(e.target.value))}
                 className="flex-1 accent-amber-400" />
               <ZoomIn size={15} className="text-gray-400 flex-shrink-0" />
