@@ -4,9 +4,9 @@ import { useState, useCallback, useRef } from "react";
 import Cropper from "react-easy-crop";
 import "react-easy-crop/react-easy-crop.css";
 import type { Area } from "react-easy-crop";
-import { Link2, Upload, ZoomIn, ZoomOut, RotateCw, Check, X, ImageIcon } from "lucide-react";
+import { Link2, Upload, ZoomIn, ZoomOut, RotateCw, Check, X, ImageIcon, Camera } from "lucide-react";
 
-type Mode = "url" | "upload";
+type Mode = "url" | "upload" | "camera";
 
 interface Props {
   value: string;
@@ -77,7 +77,8 @@ export default function ImageUploader({ value, onChange }: Props) {
   const [quality,     setQuality]     = useState(0.88);
   const [uploading,   setUploading]   = useState(false);
   const [uploadError, setUploadError] = useState("");
-  const fileRef = useRef<HTMLInputElement>(null);
+  const fileRef    = useRef<HTMLInputElement>(null);
+  const cameraRef  = useRef<HTMLInputElement>(null);
 
   const onCropComplete = useCallback((_: Area, pixels: Area) => setCroppedArea(pixels), []);
 
@@ -127,17 +128,24 @@ export default function ImageUploader({ value, onChange }: Props) {
   return (
     <div className="space-y-3">
       {/* Mode toggle */}
-      <div className="flex gap-2">
-        {(["url", "upload"] as Mode[]).map((m) => (
-          <button key={m} type="button" onClick={() => setMode(m)}
+      <div className="flex flex-wrap gap-2">
+        {([
+          { m: "url",    icon: <Link2   size={14} />, label: "קישור URL"       },
+          { m: "upload", icon: <Upload  size={14} />, label: "העלאה ממכשיר"   },
+          { m: "camera", icon: <Camera  size={14} />, label: "צלם עם המצלמה"  },
+        ] as { m: Mode; icon: React.ReactNode; label: string }[]).map(({ m, icon, label }) => (
+          <button key={m} type="button"
+            onClick={() => { setMode(m); if (m === "camera") cameraRef.current?.click(); }}
             className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-semibold border transition-colors ${
               mode === m ? "bg-amber-500 text-white border-amber-500" : "bg-white text-gray-600 border-gray-200 hover:border-amber-300"
             }`}
           >
-            {m === "url" ? <Link2 size={14} /> : <Upload size={14} />}
-            {m === "url" ? "קישור URL" : "העלאה ממכשיר"}
+            {icon}{label}
           </button>
         ))}
+        {/* Hidden camera input — opens rear camera on mobile */}
+        <input ref={cameraRef} type="file" accept="image/*" capture="environment"
+          className="hidden" onChange={pickFile} />
       </div>
 
       {/* URL mode */}
@@ -150,7 +158,7 @@ export default function ImageUploader({ value, onChange }: Props) {
       )}
 
       {/* Upload — drop zone */}
-      {mode === "upload" && !rawSrc && (
+      {(mode === "upload" || mode === "camera") && !rawSrc && mode !== "camera" && (
         <div onDragOver={(e) => e.preventDefault()} onDrop={onDrop}
           onClick={() => fileRef.current?.click()}
           className="border-2 border-dashed border-gray-200 hover:border-amber-400 rounded-2xl p-8 text-center cursor-pointer transition-colors group"
@@ -163,7 +171,7 @@ export default function ImageUploader({ value, onChange }: Props) {
       )}
 
       {/* Upload — crop UI */}
-      {mode === "upload" && rawSrc && (
+      {(mode === "upload" || mode === "camera") && rawSrc && (
         <div className="rounded-2xl overflow-hidden border border-gray-200">
           {/* Cropper */}
           <div style={{ position: "relative", height: "288px", background: "#111" }}>
@@ -226,7 +234,7 @@ export default function ImageUploader({ value, onChange }: Props) {
       )}
 
       {/* Success state */}
-      {mode === "upload" && !rawSrc && value && (
+      {(mode === "upload" || mode === "camera") && !rawSrc && value && (
         <div className="flex items-center gap-3 bg-green-50 border border-green-200 rounded-xl px-4 py-3">
           <img src={value} alt="" className="w-12 h-12 object-cover rounded-lg flex-shrink-0" />
           <div className="flex-1 min-w-0">
