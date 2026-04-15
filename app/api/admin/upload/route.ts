@@ -28,7 +28,10 @@ export async function POST(req: NextRequest) {
 
     if (error) {
       console.error("[upload]", error.message);
-      return NextResponse.json({ error: "שגיאה בהעלאה לאחסון" }, { status: 500 });
+      const msg = error.message.includes("not found") || error.message.includes("bucket")
+        ? "באקט האחסון לא נמצא — צור bucket בשם menu-images ב-Supabase Storage"
+        : `שגיאת אחסון: ${error.message}`;
+      return NextResponse.json({ error: msg }, { status: 500 });
     }
 
     const { data: { publicUrl } } = supabase.storage.from(BUCKET).getPublicUrl(filename);
