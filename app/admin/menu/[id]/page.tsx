@@ -4,6 +4,7 @@ import { useEffect, useState, use } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { ArrowRight, Save } from "lucide-react";
+import ImageUploader from "@/components/admin/ImageUploader";
 
 interface AdminMenuItem {
   id: string; name: string; description: string; price: number;
@@ -146,14 +147,13 @@ export default function MenuItemFormPage({ params }: { params: Promise<{ id: str
             />
           </FormField>
 
-          <FormField label="כתובת תמונה (URL)" htmlFor="image">
-            <input
-              id="image" type="url" value={form.image ?? ""}
-              onChange={(e) => setForm({ ...form, image: e.target.value })}
-              placeholder="https://images.unsplash.com/..."
-              className={INPUT_CLS} dir="ltr"
+          <div>
+            <label className="block text-sm font-semibold text-gray-700 mb-1.5">תמונה</label>
+            <ImageUploader
+              value={form.image ?? ""}
+              onChange={(url) => setForm({ ...form, image: url })}
             />
-          </FormField>
+          </div>
 
           <div className="flex items-center gap-3">
             <input
