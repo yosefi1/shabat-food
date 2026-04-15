@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useRef } from "react";
 import Cropper from "react-easy-crop";
+import "react-easy-crop/react-easy-crop.css";
 import type { Area } from "react-easy-crop";
 import { Link2, Upload, ZoomIn, ZoomOut, RotateCw, Check, X, ImageIcon } from "lucide-react";
 
