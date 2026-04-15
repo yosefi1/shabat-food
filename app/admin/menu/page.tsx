@@ -95,12 +95,6 @@ export default function MenuPage() {
         </div>
       </div>
 
-      {/* Info note */}
-      <div className="bg-blue-50 border border-blue-200 rounded-xl px-4 py-3 text-xs text-blue-700">
-        <strong>הערה:</strong> שינויים בתפריט נשמרים ב-<code>data/menu.json</code> (ניהול).
-        האתר הציבורי ממשיך להשתמש בקובץ הסטטי עד חיבור מסד נתונים.
-      </div>
-
       {/* Grid */}
       {loading ? (
         <div className="flex items-center justify-center h-32 text-gray-400">
