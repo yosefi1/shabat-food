@@ -25,18 +25,17 @@ function createImage(url: string): Promise<HTMLImageElement> {
   });
 }
 
-async function cropToBlob(src: string, crop: Area, rotation: number): Promise<Blob> {
-  const image  = await createImage(src);
-  const canvas = document.createElement("canvas");
-  const ctx    = canvas.getContext("2d")!;
+const MAX_OUTPUT_WIDTH = 1200; // max output px — keeps files small regardless of source size
 
-  const rad  = (rotation * Math.PI) / 180;
-  const sin  = Math.abs(Math.sin(rad));
-  const cos  = Math.abs(Math.cos(rad));
-  const bw   = image.width  * cos + image.height * sin;
-  const bh   = image.width  * sin + image.height * cos;
+async function cropToBlob(src: string, crop: Area, rotation: number, quality = 0.88): Promise<Blob> {
+  const image = await createImage(src);
+  const rad   = (rotation * Math.PI) / 180;
+  const sin   = Math.abs(Math.sin(rad));
+  const cos   = Math.abs(Math.cos(rad));
+  const bw    = image.width  * cos + image.height * sin;
+  const bh    = image.width  * sin + image.height * cos;
 
-  // Rotated full image onto a temp canvas
+  // Rotate full image onto a temp canvas
   const rotCanvas = document.createElement("canvas");
   rotCanvas.width  = bw;
   rotCanvas.height = bh;
@@ -45,20 +44,24 @@ async function cropToBlob(src: string, crop: Area, rotation: number): Promise<Bl
   rctx.rotate(rad);
   rctx.drawImage(image, -image.width / 2, -image.height / 2);
 
-  // Scale crop coordinates to rotated canvas
-  const scaleX = bw / image.width;
-  const scaleY = bh / image.height;
-  canvas.width  = crop.width;
-  canvas.height = crop.height;
-  ctx.drawImage(
-    rotCanvas,
-    crop.x * scaleX, crop.y * scaleY,
-    crop.width * scaleX, crop.height * scaleY,
-    0, 0, crop.width, crop.height
-  );
+  // Scale crop to rotated canvas coordinates
+  const scaleX   = bw / image.width;
+  const scaleY   = bh / image.height;
+  const srcW     = crop.width  * scaleX;
+  const srcH     = crop.height * scaleY;
+
+  // Limit output resolution so iPhone photos don't produce huge files
+  const outW = Math.min(crop.width, MAX_OUTPUT_WIDTH);
+  const outH = Math.round(outW * (srcH / srcW));
+
+  const canvas = document.createElement("canvas");
+  canvas.width  = outW;
+  canvas.height = outH;
+  const ctx = canvas.getContext("2d")!;
+  ctx.drawImage(rotCanvas, crop.x * scaleX, crop.y * scaleY, srcW, srcH, 0, 0, outW, outH);
 
   return new Promise((resolve, reject) =>
-    canvas.toBlob((b) => b ? resolve(b) : reject(new Error("canvas empty")), "image/jpeg", 0.92)
+    canvas.toBlob((b) => b ? resolve(b) : reject(new Error("canvas empty")), "image/jpeg", quality)
   );
 }
 
@@ -71,6 +74,7 @@ export default function ImageUploader({ value, onChange }: Props) {
   const [zoom,        setZoom]        = useState(1);
   const [rotation,    setRotation]    = useState(0);
   const [croppedArea, setCroppedArea] = useState<Area | null>(null);
+  const [quality,     setQuality]     = useState(0.88);
   const [uploading,   setUploading]   = useState(false);
   const [uploadError, setUploadError] = useState("");
   const fileRef = useRef<HTMLInputElement>(null);
@@ -99,7 +103,7 @@ export default function ImageUploader({ value, onChange }: Props) {
     setUploading(true);
     setUploadError("");
     try {
-      const blob     = await cropToBlob(rawSrc, croppedArea, rotation);
+      const blob     = await cropToBlob(rawSrc, croppedArea, rotation, quality);
       const fd       = new FormData();
       fd.append("file", new File([blob], "menu.jpg", { type: "image/jpeg" }));
       const res  = await fetch("/api/admin/upload", { method: "POST", body: fd });
@@ -194,6 +198,13 @@ export default function ImageUploader({ value, onChange }: Props) {
                 onChange={(e) => setRotation(Number(e.target.value))}
                 className="flex-1 accent-amber-400" />
               <span className="text-gray-400 text-xs w-10 text-left flex-shrink-0">{rotation}°</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="text-gray-400 text-xs flex-shrink-0">איכות</span>
+              <input type="range" min={0.4} max={1} step={0.05} value={quality}
+                onChange={(e) => setQuality(Number(e.target.value))}
+                className="flex-1 accent-amber-400" />
+              <span className="text-gray-400 text-xs w-10 text-left flex-shrink-0">{Math.round(quality * 100)}%</span>
             </div>
             <div className="flex gap-2 pt-1">
               <button type="button" onClick={confirmCrop} disabled={uploading}
