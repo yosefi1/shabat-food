@@ -43,10 +43,10 @@ const securityHeaders = [
       // Tailwind injects inline styles; Google Fonts
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com",
-      // Unsplash images; data: URIs for base64 placeholders
-      "img-src 'self' data: https://images.unsplash.com",
-      // API calls only to same origin
-      "connect-src 'self'",
+      // Unsplash + Supabase storage + blob: for local file preview + data: for base64
+      "img-src 'self' data: blob: https://images.unsplash.com https://*.supabase.co",
+      // Supabase API calls
+      "connect-src 'self' https://*.supabase.co",
       // No iframes from external sources
       "frame-src 'none'",
       "frame-ancestors 'none'",
